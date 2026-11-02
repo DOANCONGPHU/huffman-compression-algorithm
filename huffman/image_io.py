@@ -14,6 +14,10 @@ _LOSSLESS_TO_RGBA = {"P", "PA", "LA", "1"}
 def load_image(path) -> tuple[str, int, int, bytes]:
     """Trả về (mode, width, height, pixels). Các kênh xen kẽ: R, G, B, R, G, B, ..."""
     with Image.open(path) as img:
+        if getattr(img, "n_frames", 1) > 1:
+            raise ValueError("Ảnh nhiều khung hình (ảnh động) chưa được hỗ trợ")
+        if any(";16" in str(tile.args) for tile in img.tile):
+            raise ValueError("Ảnh 16 bit/kênh chưa được hỗ trợ")
         if img.mode in _LOSSLESS_TO_RGBA:
             img = img.convert("RGBA")
         elif img.mode not in CHANNELS:

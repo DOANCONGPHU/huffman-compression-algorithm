@@ -34,7 +34,7 @@ def test_empty():
 
 
 def test_tree_is_deterministic():
-    data = bytes(random.Random(2).randrange(256) for _ in range(3000))
+    data = random.Random(2).randbytes(3000)
     f = count_frequencies(data)
     assert build_codes(build_tree(f)) == build_codes(build_tree(f))
 
@@ -51,7 +51,7 @@ def test_example_bit_length():
 
 
 def test_roundtrip_random():
-    data = bytes(random.Random(0).randrange(256) for _ in range(10_000))
+    data = random.Random(0).randbytes(10_000)
     assert _roundtrip(data)[2] == data
 
 
@@ -63,3 +63,17 @@ def test_encode_single_symbol():
 def test_encode_empty():
     assert encode(b"", {}) == (b"", 0)
     assert decode(b"", 0, None) == b""
+
+
+def test_decode_memory_is_small():
+    import tracemalloc
+
+    data = random.Random(5).randbytes(300_000)
+    root = build_tree(count_frequencies(data))
+    payload, n = encode(data, build_codes(root))
+    tracemalloc.start()
+    out = decode(payload, n, root)
+    peak = tracemalloc.get_traced_memory()[1]
+    tracemalloc.stop()
+    assert out == data
+    assert peak < 16 * len(payload)

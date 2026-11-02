@@ -137,7 +137,7 @@ Bảng mã này đúng là kết quả chương trình sinh ra: `{A: '0', B: '10
 
 Header dài cố định **1046 byte**. Mọi số nguyên đều là big-endian.
 
-Khi giải nén, chương trình kiểm tra tổng bảng tần suất và số byte giải mã ra có khớp với rộng × cao × số kênh không. Nếu file bị hỏng, chương trình báo lỗi thay vì ghi ra một ảnh sai.
+Khi giải nén, chương trình kiểm tra ba điều: tổng bảng tần suất và số byte giải mã ra phải bằng rộng × cao × số kênh, và tần suất đếm lại trên dữ liệu giải mã phải trùng với bảng tần suất trong header. Bước kiểm tra cuối tốn thêm Θ(N) và phát hiện được phần lớn lỗi hỏng file, ví dụ lật một bit, nhưng không đảm bảo tuyệt đối. Muốn chắc chắn, cần thêm mã kiểm tra như CRC32 vào định dạng file.
 
 ### a.7 Biến đổi delta (tùy chọn `--delta`)
 
@@ -189,7 +189,10 @@ Với T(n) là thời gian chạy:
 - Cận dưới: trong `heapq` của Python, `heappop` đưa phần tử cuối lên gốc, đẩy nó xuống **tận lá**, rồi mới đẩy ngược lên. Vì vậy mỗi lần `heappop` trên heap m phần tử tốn ít nhất ⌊log₂ m⌋ − 1 bước, với mọi đầu vào. Mỗi lần gộp giảm kích thước heap đi 1, nên k/2 lần gộp đầu tiên đều chạy trên heap có ít nhất k/2 phần tử. Tổng thời gian vì thế ít nhất (k/2) · (log₂(k/2) − 2) = **Ω(k log k)**.
 - Vậy bước 2 là **Θ(k log k)** với mọi đầu vào có k giá trị khác nhau.
 
-**Bước 3. Sinh mã.** Cây có k lá và k − 1 nút trong, tổng 2k − 1 nút. Mỗi nút được thăm đúng một lần, nên **Θ(k)**. Phép nối chuỗi tiền tố tốn thêm thời gian tỉ lệ với độ dài mã, nhưng độ dài mã ≤ k − 1 ≤ 255, nên với ảnh đây vẫn là hằng số.
+**Bước 3. Sinh mã.** Cây có 2k − 1 nút, mỗi nút được thăm đúng một lần, tức Θ(k) lần thăm. Nhưng khi thăm, chương trình tạo chuỗi tiền tố mới (`prefix + "0"`), tốn thời gian tỉ lệ với độ sâu của nút. Gọi ℓᵢ là độ dài mã của giá trị thứ i, tổng thời gian là **Θ(Σℓᵢ)**.
+- Cận dưới: theo bất đẳng thức Kraft (Σ 2^(−ℓᵢ) = 1 với cây Huffman), Σℓᵢ ≥ k log₂ k, nên bước này là **Ω(k log k)**.
+- Cận trên: một kết quả đã biết là cây Huffman có độ sâu tối đa O(log N), vì lá ở độ sâu d kéo theo tổng tần suất ít nhất bằng số Fibonacci thứ d. Do đó Σℓᵢ = **O(k log N)**.
+- Với ảnh, Σℓᵢ ≤ 256 · 255 nên đây là hằng số.
 
 **Bước 4. Mã hóa.** Với mỗi byte, tra bảng mã O(1) rồi ghi ra số bit bằng độ dài mã. Tổng số bit ghi ra đúng bằng N · L̄. Thời gian **Θ(N · L̄)**.
 
@@ -203,7 +206,7 @@ Với T(n) là thời gian chạy:
 |---|---|---|---|
 | Đếm tần suất | O(N) | Ω(N) | Θ(N) |
 | Dựng cây | O(k log k) | Ω(k log k) | Θ(k log k) |
-| Sinh mã | O(k) | Ω(k) | Θ(k) |
+| Sinh mã | O(k log N) | Ω(k log k) | Θ(Σℓᵢ) |
 | Mã hóa | O(N · L̄) | Ω(N) | Θ(N · L̄) |
 | Giải mã | O(N · L̄) | Ω(N) | Θ(N · L̄) |
 | Delta | O(N) | Ω(N) | Θ(N) |
@@ -212,7 +215,7 @@ Với Huffman, mỗi mã dài ít nhất 1 bit, nên L̄ ≥ 1. Mã dài nhất 
 
 **Toàn bộ thuật toán nén:**
 
-- **Cận trên:** T(N, k) = Θ(N) + O(k log k) + Θ(k) + Θ(N · L̄) = **O(N + k log k)**.
+- **Cận trên:** T(N, k) = Θ(N) + O(k log k) + O(k log N) + Θ(N · L̄). Số hạng k log N luôn là O(N + k log k). Nếu k log N ≤ N thì hiển nhiên. Ngược lại, k > N / log N nên log k > log N − log log N ≥ ½ log N (với N ≥ 16), suy ra k log N ≤ 2 k log k. Vậy T(N, k) = **O(N + k log k)**.
 - **Cận dưới:** phải đọc hết N byte, và dựng cây cần Ω(k log k) như đã chứng minh ở b.2, nên **Ω(N + k log k)**.
 - **Cận chặt:** **T(N, k) = Θ(N + k log k)** với mọi đầu vào.
 - **Trường hợp tốt nhất:** k = 1, ảnh chỉ có một giá trị byte. Cây chỉ có một lá, không có lần gộp nào, nên thời gian là **Θ(N)**.
@@ -222,7 +225,7 @@ Với Huffman, mỗi mã dài ít nhất 1 bit, nên L̄ ≥ 1. Mã dài nhất 
 
 > **T(N) = Θ(N)**, tức tuyến tính theo số byte pixel.
 
-**Bộ nhớ:** dữ liệu vào N byte, dãy bit trung gian N · L̄ bit, cây 2k − 1 nút, bảng mã k phần tử. Tổng **Θ(N + k)**, và với ảnh là Θ(N).
+**Bộ nhớ:** dữ liệu vào N byte. Khi mã hóa, chuỗi bit trung gian dài N · L̄ ký tự, mỗi ký tự chiếm 1 byte trong Python. Cây có 2k − 1 nút, bảng mã k phần tử. Tổng **Θ(N + k)**, và với ảnh là Θ(N). Khi giải mã, chương trình đọc từng byte qua một bảng tra 256 chuỗi 8 bit, nên không cần chuỗi bit trung gian.
 
 ### b.4 Hai nghĩa của "trường hợp xấu nhất"
 
@@ -250,17 +253,16 @@ Số liệu sinh bằng `python scripts/benchmark.py` trên ảnh nhiễu xám v
 
 | Cạnh | N (byte) | Nén (giây) | Giải nén (giây) | Nén (µs/byte) | Giải nén (µs/byte) |
 |---|---|---|---|---|---|
-| 128 | 16384 | 0.002 | 0.022 | 0.142 | 1.341 |
-| 256 | 65536 | 0.006 | 0.052 | 0.095 | 0.791 |
-| 512 | 262144 | 0.025 | 0.199 | 0.097 | 0.760 |
-| 1024 | 1048576 | 0.112 | 1.022 | 0.107 | 0.975 |
+| 128 | 16384 | 0.002 | 0.010 | 0.109 | 0.588 |
+| 256 | 65536 | 0.006 | 0.038 | 0.092 | 0.582 |
+| 512 | 262144 | 0.025 | 0.190 | 0.094 | 0.724 |
+| 1024 | 1048576 | 0.105 | 0.732 | 0.100 | 0.698 |
 
 **Nhận xét:**
 
 - Khi N tăng gấp 4 lần (cạnh gấp đôi), thời gian nén và giải nén cũng tăng khoảng 4 lần.
-- Thời gian trên mỗi byte gần như không đổi: khoảng 0,1 µs/byte khi nén, 0,8–1,0 µs/byte khi giải nén. Điều này khớp với kết luận **Θ(N)** ở phần b.
-- Dòng 128 có µs/byte cao hơn vì chi phí cố định, như dựng cây và khởi tạo, chiếm tỉ lệ lớn khi ảnh nhỏ.
-- Giải nén chậm hơn nén khoảng 8–9 lần. Hai chiều có cùng độ phức tạp Θ(N · L̄), chỉ khác hằng số. Khi nén, Python nối các chuỗi mã có sẵn, còn khi giải nén phải chạy vòng lặp Python cho **từng bit**.
+- Thời gian trên mỗi byte gần như không đổi: khoảng 0,1 µs/byte khi nén, 0,6–0,7 µs/byte khi giải nén. Điều này khớp với kết luận **Θ(N)** ở phần b. Các con số dao động nhẹ giữa những lần chạy do nhiễu đo đạc.
+- Giải nén chậm hơn nén khoảng 5–7 lần. Hai chiều có cùng độ phức tạp Θ(N · L̄), chỉ khác hằng số. Khi nén, Python nối các chuỗi mã có sẵn, còn khi giải nén phải chạy vòng lặp Python cho **từng bit**.
 
 ### c.3 Tỉ lệ nén trên ảnh mẫu
 
@@ -332,7 +334,7 @@ PNG thường nhỏ hơn `.huf` vì PNG dùng DEFLATE, tức là **LZ77 kết h�
 
 ### c.6 Kết luận
 
-Thuật toán Huffman nén ảnh có độ phức tạp **Θ(N + k log k)**. Với ảnh, k ≤ 256 nên độ phức tạp là **Θ(N)** cả về thời gian lẫn bộ nhớ. Thực nghiệm xác nhận thời gian tăng tuyến tính theo kích thước ảnh. Độ dài mã trung bình luôn nằm trong giới hạn Shannon H ≤ L̄ < H + 1.
+Thuật toán Huffman nén ảnh có độ phức tạp **Θ(N + k log k)**. Với ảnh, k ≤ 256 nên độ phức tạp là **Θ(N)** cả về thời gian lẫn bộ nhớ. Thực nghiệm xác nhận thời gian tăng tuyến tính theo kích thước ảnh. Độ dài mã trung bình luôn nằm trong giới hạn Shannon H ≤ L̄ < H + 1, trừ trường hợp k = 1.
 
 Hiệu quả nén phụ thuộc vào phân bố giá trị pixel:
 

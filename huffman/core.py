@@ -3,7 +3,12 @@
 from __future__ import annotations
 
 import heapq
+from itertools import chain
 from dataclasses import dataclass
+
+
+# _BYTE_BITS[b] là chuỗi 8 bit của byte b, ví dụ _BYTE_BITS[5] == "00000101".
+_BYTE_BITS = [format(b, "08b") for b in range(256)]
 
 
 @dataclass
@@ -50,7 +55,7 @@ def build_tree(freqs: list[int]) -> Node | None:
 
 
 def build_codes(root: Node | None) -> dict[int, str]:
-    """Duyệt cây để sinh mã: đi trái thêm '0', đi phải thêm '1'. Θ(k)."""
+    """Duyệt cây để sinh mã: đi trái thêm '0', đi phải thêm '1'. Θ(tổng độ dài các mã)."""
     if root is None:
         return {}
     if root.symbol is not None:
@@ -87,14 +92,18 @@ def decode(payload: bytes, bit_length: int, root: Node | None) -> bytes:
     """
     if root is None or bit_length == 0:
         return b""
-    bits = "".join(format(byte, "08b") for byte in payload)[:bit_length]
     if root.symbol is not None:
         return bytes([root.symbol]) * bit_length
+    # Duyệt từng byte qua bảng tra 8 bit, không tạo chuỗi bit lớn trong bộ nhớ.
+    full, rest = divmod(bit_length, 8)
+    tail = _BYTE_BITS[payload[full]][:rest] if rest else ""
+    chunks = chain((_BYTE_BITS[byte] for byte in memoryview(payload)[:full]), (tail,))
     out = bytearray()
     node = root
-    for bit in bits:
-        node = node.left if bit == "0" else node.right
-        if node.symbol is not None:
-            out.append(node.symbol)
-            node = root
+    for chunk in chunks:
+        for bit in chunk:
+            node = node.left if bit == "0" else node.right
+            if node.symbol is not None:
+                out.append(node.symbol)
+                node = root
     return bytes(out)

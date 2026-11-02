@@ -16,7 +16,7 @@ def test_rgb_example():
 
 
 def test_roundtrip_random():
-    data = bytes(random.Random(3).randrange(256) for _ in range(7 * 3 * 5))
+    data = random.Random(3).randbytes(7 * 3 * 5)
     assert delta_decode(delta_encode(data, 7, 3), 7, 3) == data
 
 

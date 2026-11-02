@@ -36,7 +36,7 @@ Thống kê entropy, độ dài mã trung bình và tỉ lệ nén, có và khô
 python -m huffman stats samples/photo_astronaut.png
 ```
 
-Ảnh đầu vào có thể là PNG, JPG hoặc BMP. Chế độ màu được hỗ trợ: xám (L), RGB, RGBA, và ảnh bảng màu (P), ảnh bảng màu được chuyển sang RGBA. Ảnh 16-bit chưa được hỗ trợ.
+Ảnh đầu vào có thể là PNG, JPG hoặc BMP. Chế độ màu được hỗ trợ: xám (L), RGB, RGBA, và ảnh bảng màu (P), ảnh bảng màu được chuyển sang RGBA. Ảnh 16 bit/kênh và ảnh động (nhiều khung hình) chưa được hỗ trợ.
 
 ## Kiểm thử
 

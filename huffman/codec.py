@@ -35,6 +35,8 @@ def decompress_file(input_path, output_path) -> None:
     data = decode(payload, header.bit_length, build_tree(header.freqs))
     if len(data) != header.width * header.height * channels:
         raise ValueError("File .huf không hợp lệ")
+    if count_frequencies(data) != header.freqs:
+        raise ValueError("File .huf bị hỏng: dữ liệu giải mã không khớp bảng tần suất")
     if header.use_delta:
         data = delta_decode(data, header.width, channels)
     save_image(output_path, header.mode, header.width, header.height, data)

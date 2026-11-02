@@ -98,3 +98,44 @@ def test_delta_helps_gradient(tmp_path):
     Image.frombytes("L", (256, 64), bytes(range(256)) * 64).save(p)
     s = stats(p)
     assert s["ratio_delta"] < s["ratio"]
+
+
+def _png16_rgb(path, w, h, samples):
+    """Ghi tay một PNG RGB 16 bit/kênh (Pillow mở ảnh này ở chế độ RGB)."""
+    import struct
+    import zlib
+
+    def chunk(kind, data):
+        return struct.pack(">I", len(data)) + kind + data + struct.pack(">I", zlib.crc32(kind + data))
+
+    raw = b"".join(b"\x00" + struct.pack(f">{w * 3}H", *samples[y * w * 3:(y + 1) * w * 3])
+                   for y in range(h))
+    ihdr = struct.pack(">IIBBBBB", w, h, 16, 2, 0, 0, 0)
+    path.write_bytes(b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", ihdr)
+                     + chunk(b"IDAT", zlib.compress(raw)) + chunk(b"IEND", b""))
+
+
+def test_16bit_rgb_rejected(tmp_path):
+    p = tmp_path / "a.png"
+    _png16_rgb(p, 4, 2, [1 + 1000 * i for i in range(4 * 2 * 3)])
+    with pytest.raises(ValueError):
+        load_image(p)
+
+
+def test_multi_frame_rejected(tmp_path):
+    p = tmp_path / "a.png"
+    Image.new("L", (4, 4), 1).save(p, save_all=True, append_images=[Image.new("L", (4, 4), 2)])
+    with pytest.raises(ValueError):
+        load_image(p)
+
+
+def test_flipped_payload_bit_rejected(tmp_path):
+    # Hai giá trị xuất hiện đều nhau nên mỗi mã dài 1 bit: lật một bit vẫn ra
+    # đúng số pixel nhưng sai giá trị. Phải báo lỗi, không ghi ra ảnh sai.
+    img = Image.frombytes("L", (8, 8), bytes([0, 255]) * 32)
+    _, huf, _ = _roundtrip(tmp_path, img, False)
+    data = bytearray(huf.read_bytes())
+    data[1046] ^= 0x80
+    huf.write_bytes(bytes(data))
+    with pytest.raises(ValueError):
+        decompress_file(huf, tmp_path / "bad.png")
