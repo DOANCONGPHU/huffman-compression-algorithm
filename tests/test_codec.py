@@ -3,7 +3,7 @@ import random
 import pytest
 from PIL import Image
 
-from huffman.codec import compress_file, decompress_file
+from huffman.codec import compress_file, decompress_file, stats
 from huffman.image_io import load_image, save_image
 
 
@@ -76,3 +76,25 @@ def test_extra_decoded_pixels_rejected(tmp_path):
     huf.write_bytes(bytes(data) + b"\x00")
     with pytest.raises(ValueError):
         decompress_file(huf, tmp_path / "bad.png")
+
+
+STATS_KEYS = {"mode", "width", "height", "raw_bytes", "file_bytes", "distinct_symbols",
+              "entropy", "avg_code_length", "huf_bytes", "ratio",
+              "entropy_delta", "avg_code_length_delta", "huf_bytes_delta", "ratio_delta",
+              "encode_seconds", "decode_seconds"}
+
+
+def test_stats_keys_and_shannon_bound(tmp_path):
+    p = tmp_path / "a.png"
+    _random_image("RGB").save(p)
+    s = stats(p)
+    assert set(s) == STATS_KEYS
+    assert s["raw_bytes"] == 37 * 23 * 3
+    assert s["entropy"] <= s["avg_code_length"] < s["entropy"] + 1
+
+
+def test_delta_helps_gradient(tmp_path):
+    p = tmp_path / "g.png"
+    Image.frombytes("L", (256, 64), bytes(range(256)) * 64).save(p)
+    s = stats(p)
+    assert s["ratio_delta"] < s["ratio"]
