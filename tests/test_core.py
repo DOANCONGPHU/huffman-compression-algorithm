@@ -1,6 +1,6 @@
 import random
 
-from huffman.core import build_codes, build_tree, count_frequencies
+from huffman.core import build_codes, build_tree, count_frequencies, decode, encode
 
 
 def test_count_frequencies():
@@ -37,3 +37,29 @@ def test_tree_is_deterministic():
     data = bytes(random.Random(2).randrange(256) for _ in range(3000))
     f = count_frequencies(data)
     assert build_codes(build_tree(f)) == build_codes(build_tree(f))
+
+
+def _roundtrip(data):
+    root = build_tree(count_frequencies(data))
+    payload, n = encode(data, build_codes(root))
+    return payload, n, decode(payload, n, root)
+
+
+def test_example_bit_length():
+    payload, n, out = _roundtrip(b"AAAABBCD")
+    assert n == 14 and len(payload) == 2 and out == b"AAAABBCD"
+
+
+def test_roundtrip_random():
+    data = bytes(random.Random(0).randrange(256) for _ in range(10_000))
+    assert _roundtrip(data)[2] == data
+
+
+def test_encode_single_symbol():
+    payload, n, out = _roundtrip(b"\x07" * 10)
+    assert (payload, n, out) == (b"\x00\x00", 10, b"\x07" * 10)
+
+
+def test_encode_empty():
+    assert encode(b"", {}) == (b"", 0)
+    assert decode(b"", 0, None) == b""

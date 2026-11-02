@@ -65,3 +65,36 @@ def build_codes(root: Node | None) -> dict[int, str]:
             stack.append((node.left, prefix + "0"))
             stack.append((node.right, prefix + "1"))
     return codes
+
+
+def encode(data: bytes, codes: dict[int, str]) -> tuple[bytes, int]:
+    """Thay mỗi byte bằng mã của nó. Trả về (payload, số bit thật).
+
+    Byte cuối được đệm bit '0' bên phải cho đủ 8 bit. Θ(N · L̄).
+    """
+    bits = "".join(codes[b] for b in data)
+    bit_length = len(bits)
+    if bit_length == 0:
+        return b"", 0
+    padded = bits + "0" * (-bit_length % 8)
+    return int(padded, 2).to_bytes(len(padded) // 8, "big"), bit_length
+
+
+def decode(payload: bytes, bit_length: int, root: Node | None) -> bytes:
+    """Đi từ gốc xuống theo từng bit, gặp lá thì ghi symbol và quay về gốc.
+
+    Chỉ đọc `bit_length` bit đầu, bỏ qua bit đệm. Θ(N · L̄).
+    """
+    if root is None or bit_length == 0:
+        return b""
+    bits = "".join(format(byte, "08b") for byte in payload)[:bit_length]
+    if root.symbol is not None:
+        return bytes([root.symbol]) * bit_length
+    out = bytearray()
+    node = root
+    for bit in bits:
+        node = node.left if bit == "0" else node.right
+        if node.symbol is not None:
+            out.append(node.symbol)
+            node = root
+    return bytes(out)
