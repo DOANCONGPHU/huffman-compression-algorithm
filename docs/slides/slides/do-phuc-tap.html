@@ -1,0 +1,28 @@
+<section id="do-phuc-tap" data-transition="fade" style="background:#F6F4EE;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Độ phức tạp</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Dựng cây Huffman: O(n log n) với heap</h2>
+</div>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:44px;font-style:italic;line-height:1.2;color:#12233D">T(n) = O(n) + (n − 1) · 3 · O(log n) = O(n log n)</p>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#12233D;border-radius:16px;padding:36px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#F2A945">Heap nhị phân</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:44px;font-weight:600;line-height:1.1;color:#F6F4EE">O(n log n)</p>
+<p style="font-size:28px;line-height:1.4;color:#F6F4EE">n − 1 lần: 2 EXTRACT-MIN và 1 INSERT, mỗi thao tác O(log n)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:36px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Hai hàng đợi</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:44px;font-weight:600;line-height:1.1;color:#12233D">O(n log n)</p>
+<p style="font-size:28px;line-height:1.4;color:#3D4959">Sắp xếp một lần, phần gộp chỉ O(n); nếu tần suất đã sắp sẵn thì O(n)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:36px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Quét tuyến tính</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:44px;font-weight:600;line-height:1.1;color:#12233D">O(n²)</p>
+<p style="font-size:28px;line-height:1.4;color:#3D4959">Mỗi bước tìm hai phần tử nhỏ nhất bằng cách duyệt danh sách, tốn O(n)</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#3D4959">Nén toàn bộ dữ liệu N byte: <b>O(N + n log n)</b>. Bảng byte có n ≤ 256 nên phần O(N) chiếm ưu thế.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Cormen và cs., mục 16.3</p>
+<aside>Khởi tạo heap tốn O(n). Vòng lặp chạy đúng n trừ 1 lần, mỗi lần gồm hai thao tác lấy phần tử nhỏ nhất và một thao tác chèn, mỗi thao tác O(log n). Tổng là O(n log n). Nhóm cài đặt thêm hai cách khác của cùng phép chọn tham lam để đối chiếu: cách quét tuyến tính O(n bình phương) và cách dùng hai hàng đợi. Với bảng chữ cái byte thì n tối đa 256, nên chi phí chủ yếu là phần tuyến tính theo độ dài dữ liệu.</aside>
+</section>

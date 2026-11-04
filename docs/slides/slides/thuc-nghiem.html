@@ -1,0 +1,27 @@
+<section id="thuc-nghiem" data-transition="fade" style="background:#12233D;color:#EAE6DA;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#F2A945">Thực nghiệm</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#F6F4EE">Bốn thuật toán tự cài đặt, 11 tệp dữ liệu</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#1D3557;border-radius:16px;padding:40px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:120px;font-weight:600;line-height:1;color:#F2A945">4</p>
+<p style="font-size:30px;font-weight:600;line-height:1.3;color:#F6F4EE">thuật toán, Python thuần</p>
+<p style="font-size:26px;line-height:1.4;color:#B9C4D6">Huffman tĩnh (mã chính tắc), Huffman thích nghi (FGK), LZ77 (cửa sổ 4 KB), LZ78 (từ điển 65.536 cụm)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#1D3557;border-radius:16px;padding:40px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:120px;font-weight:600;line-height:1;color:#F2A945">11</p>
+<p style="font-size:30px;font-weight:600;line-height:1.3;color:#F6F4EE">tệp dữ liệu công khai</p>
+<p style="font-size:26px;line-height:1.4;color:#B9C4D6">6 tệp cảm biến IoT từ UCI (Occupancy ×3, Appliances Energy, Beijing PM2.5, Household Power) và 5 tệp trùng với Nasif và cs.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#1D3557;border-radius:16px;padding:40px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:120px;font-weight:600;line-height:1;color:#F2A945">95</p>
+<p style="font-size:30px;font-weight:600;line-height:1.3;color:#F6F4EE">kiểm thử tự động đạt</p>
+<p style="font-size:26px;line-height:1.4;color:#B9C4D6">Mỗi lần đo đều giải nén và so sánh từng byte với dữ liệu gốc</p>
+</div>
+</div>
+<p style="font-size:30px;line-height:1.4;color:#F6F4EE">Tỉ lệ nén = kích thước sau nén / kích thước gốc, tính cả phần đầu và bảng mã; <b>càng nhỏ càng tốt</b>.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#B9C4D6">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#B9C4D6">Dữ liệu: UCI, Kaggle</p>
+<aside>Nhóm tự cài đặt cả bốn thuật toán bằng Python thuần để so sánh thời gian trong cùng điều kiện. Dữ liệu gồm 6 tệp cảm biến IoT của UCI và 5 tệp trùng với bài báo của Nasif để đối chiếu. Do môi trường chạy không truy cập được trực tiếp trang UCI và Kaggle, nhóm lấy bản sao công khai trên GitHub và ghi mã băm SHA-256 trong báo cáo. Tỉ lệ nén tính trên toàn bộ tệp nén, gồm cả bảng mã, nên so sánh công bằng giữa các thuật toán.</aside>
+</section>

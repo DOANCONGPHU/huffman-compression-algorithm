@@ -1,0 +1,25 @@
+<section id="vi-sao-lz" data-transition="fade" style="background:#F6F4EE;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Kết quả · Giải thích</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Vì sao LZ thắng? Nhìn vào dữ liệu thật</h2>
+</div>
+<div style="background:#12233D;border-radius:16px;padding:32px 40px;display:flex;flex-direction:column;gap:10px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#B9C4D6">3 dòng đầu tệp occupancy_datatraining (màu cam: phần lặp lại dòng trên)</p>
+<p style="font-family:'Courier New', monospace;font-size:28px;color:#F6F4EE;white-space:nowrap">"1","2015-02-04 17:51:00",23.18,27.272,426,721.25,0.00479298817650529,1</p>
+<p style="font-family:'Courier New', monospace;font-size:28px;color:#F6F4EE;white-space:nowrap">"2",<span style="color:#F2A945">"2015-02-04 17:5</span>1:59",<span style="color:#F2A945">23.1</span>5,<span style="color:#F2A945">27.2</span>675,<span style="color:#F2A945">42</span>9.5,<span style="color:#F2A945">7</span>14,<span style="color:#F2A945">0.0047</span>8344094931065<span style="color:#F2A945">,1</span></p>
+<p style="font-family:'Courier New', monospace;font-size:28px;color:#F6F4EE;white-space:nowrap">"3",<span style="color:#F2A945">"2015-02-04 17:5</span>3:00",<span style="color:#F2A945">23.15,27.2</span>45,<span style="color:#F2A945">42</span>6,<span style="color:#F2A945">71</span>3.5,<span style="color:#F2A945">0.0047</span>7946352442199<span style="color:#F2A945">,1</span></p>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:32px">
+<h3 style="font-size:30px;font-weight:600;color:#2A6FB8">Huffman</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4959">Mã hóa từng ký tự riêng lẻ: chuỗi “2015-02-04 17:5” ở mỗi dòng vẫn tốn đủ số bit như lần đầu.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:32px">
+<h3 style="font-size:30px;font-weight:600;color:#12233D">LZ77, LZ78</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4959">Thay cả đoạn lặp bằng một tham chiếu ngắn; dữ liệu càng nhiều dòng, càng có lợi.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Dữ liệu: UCI Occupancy Detection</p>
+<aside>Đây là ba dòng đầu thật của tệp cảm biến phòng làm việc. Phần màu cam là những đoạn đã xuất hiện ở dòng ngay trên: ngày giờ gần như giống hệt, nhiệt độ và độ ẩm chỉ đổi vài chữ số cuối, cột cuối luôn là dấu phẩy và số 1. Huffman mã hóa từng ký tự độc lập nên mỗi lần gặp lại chuỗi ngày giờ vẫn tốn đủ số bit. LZ77 và LZ78 thay cả đoạn lặp bằng một tham chiếu ngắn, nên trên dữ liệu kiểu này chúng nén tốt hơn.</aside>
+</section>

@@ -1,0 +1,28 @@
+<section id="lz78" data-transition="fade" style="background:#F6F4EE;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Đối thủ 2 · LZ78 (Ziv và Lempel, 1978)</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">LZ78: từ điển cụm lớn dần theo dữ liệu</h2>
+</div>
+<p style="font-size:30px;line-height:1.4;color:#12233D">Mỗi bước tìm cụm dài nhất đã có trong từ điển, phát cặp <b>(số thứ tự cụm, ký tự kế tiếp)</b> rồi thêm cụm mới vào từ điển.</p>
+<div style="display:flex;gap:40px">
+<div style="width:1080px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:26px;color:#5F6B7A">Ví dụ nén chuỗi <b>ABABABA</b> (7 ký tự)</p>
+<table style="width:1080px;font-size:26px;color:#3D4959">
+<tr style="background:#DCE5F1"><th style="width:34%;text-align:left">Cụm dài nhất đã có</th><th style="width:26%;text-align:left">Phát ra</th><th style="width:40%;text-align:left">Thêm vào từ điển</th></tr>
+<tr><td>(rỗng)</td><td style="font-family:'Courier New', monospace"><b>(0, A)</b></td><td>1 = A</td></tr>
+<tr><td>(rỗng)</td><td style="font-family:'Courier New', monospace"><b>(0, B)</b></td><td>2 = B</td></tr>
+<tr><td>A (số 1)</td><td style="font-family:'Courier New', monospace"><b>(1, B)</b></td><td>3 = AB</td></tr>
+<tr><td>AB (số 3)</td><td style="font-family:'Courier New', monospace"><b>(3, A)</b></td><td>4 = ABA</td></tr>
+</table>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#12233D;border-radius:16px;padding:36px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#F2A945">Tham số nhóm dùng</p>
+<p style="font-size:26px;line-height:1.4;color:#F6F4EE">Số thứ tự cụm: vừa đủ bit cho cỡ từ điển hiện tại</p>
+<p style="font-size:26px;line-height:1.4;color:#F6F4EE">Ký tự: 8 bit</p>
+<p style="font-size:26px;line-height:1.4;color:#B9C4D6">Tối đa 65.536 cụm, đầy thì xóa và học lại</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Ví dụ minh họa của nhóm</p>
+<aside>LZ78 không dùng cửa sổ mà xây một từ điển các cụm. Ban đầu từ điển chỉ có cụm rỗng. Mỗi bước, nó tìm cụm dài nhất đã có khớp với phần sắp nén, phát số thứ tự của cụm đó kèm ký tự kế tiếp, rồi thêm cụm mới dài hơn một ký tự vào từ điển. Với ABABABA: phát (0, A), (0, B), (1, B) và (3, A); từ điển học được A, B, AB, ABA. Dữ liệu càng dài, từ điển càng có nhiều cụm dài, nên LZ78 nén càng tốt.</aside>
+</section>

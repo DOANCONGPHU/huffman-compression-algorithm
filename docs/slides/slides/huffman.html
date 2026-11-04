@@ -1,0 +1,43 @@
+<section id="huffman" data-transition="fade" style="background:#ECE7DA;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Thuật toán</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Huffman: gộp hai ký hiệu hiếm nhất, lặp lại</h2>
+</div>
+<div style="display:flex;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:none;width:52px;height:52px;border-radius:26px;background:#2A6FB8;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:600;color:#F6F4EE">1</p></div>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#3D4959">Mỗi ký hiệu là một cây một nút, trọng số bằng tần suất</p>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:none;width:52px;height:52px;border-radius:26px;background:#2A6FB8;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:600;color:#F6F4EE">2</p></div>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#3D4959">Lấy hai cây có trọng số nhỏ nhất ra khỏi hàng đợi ưu tiên (min-heap)</p>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:none;width:52px;height:52px;border-radius:26px;background:#2A6FB8;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:600;color:#F6F4EE">3</p></div>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#3D4959">Gộp thành cây mới, trọng số bằng tổng, đưa trở lại hàng đợi</p>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start">
+<div style="flex:none;width:52px;height:52px;border-radius:26px;background:#2A6FB8;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:600;color:#F6F4EE">4</p></div>
+<p style="flex:1;font-size:30px;line-height:1.4;color:#3D4959">Lặp n − 1 lần; cây còn lại là cây Huffman, đường đi trái 0, phải 1 cho từ mã</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#12233D;border-radius:16px;padding:40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#F2A945">Mã giả</p>
+<p style="font-family:'Courier New', monospace;font-size:26px;font-weight:700;color:#F6F4EE">HUFFMAN(C):</p>
+<p style="font-family:'Courier New', monospace;font-size:26px;color:#F6F4EE;padding:0 0 0 32px">Q ← min-heap(C)        // O(n)</p>
+<p style="font-family:'Courier New', monospace;font-size:26px;color:#F6F4EE;padding:0 0 0 32px">for i ← 1 … n − 1:</p>
+<p style="font-family:'Courier New', monospace;font-size:26px;color:#F6F4EE;padding:0 0 0 64px">x ← EXTRACT-MIN(Q)   // O(log n)</p>
+<p style="font-family:'Courier New', monospace;font-size:26px;color:#F6F4EE;padding:0 0 0 64px">y ← EXTRACT-MIN(Q)   // O(log n)</p>
+<p style="font-family:'Courier New', monospace;font-size:26px;color:#F6F4EE;padding:0 0 0 64px">f(z) ← f(x) + f(y)</p>
+<p style="font-family:'Courier New', monospace;font-size:26px;color:#F6F4EE;padding:0 0 0 64px">INSERT(Q, z)         // O(log n)</p>
+<p style="font-family:'Courier New', monospace;font-size:26px;color:#F6F4EE;padding:0 0 0 32px">return EXTRACT-MIN(Q)</p>
+</div>
+</div>
+<div style="background:#FDFCF9;border-left:8px solid #2A6FB8;padding:24px 32px">
+<p style="font-size:32px;line-height:1.4;font-weight:600;color:#12233D">Lựa chọn tham lam: ở mỗi bước luôn gộp hai ký hiệu có tần suất nhỏ nhất.</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Huffman (1952)</p>
+<aside>Thuật toán Huffman dựng cây từ dưới lên. Mỗi ký hiệu bắt đầu là một cây một nút. Ở mỗi bước ta lấy hai cây có trọng số nhỏ nhất, gộp chúng thành cây mới có trọng số bằng tổng. Sau n trừ 1 lần gộp còn một cây. Đây chính là lựa chọn tham lam: luôn chọn hai cây nhẹ nhất. Với hàng đợi ưu tiên, mỗi thao tác lấy hoặc chèn tốn O(log n).</aside>
+</section>

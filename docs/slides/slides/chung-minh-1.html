@@ -1,0 +1,25 @@
+<section id="chung-minh-1" data-transition="fade" style="background:#ECE7DA;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Tính đúng đắn (1/2)</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Bổ đề 1: lựa chọn tham lam không mất tối ưu</h2>
+</div>
+<p style="font-size:34px;line-height:1.4;color:#12233D">Hai ký hiệu x, y có tần suất nhỏ nhất luôn là hai lá anh em, sâu nhất, của một cây tối ưu.</p>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:36px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1;color:#2A6FB8">1</p>
+<p style="font-size:28px;line-height:1.4;color:#3D4959">Lấy một cây tối ưu T. Gọi a, b là hai lá anh em sâu nhất, với f(x) ≤ f(a) và d(x) ≤ d(a).</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:36px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1;color:#2A6FB8">2</p>
+<p style="font-size:28px;line-height:1.4;color:#3D4959">Đổi chỗ x với a được cây T′:</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:30px;font-style:italic;line-height:1.4;color:#12233D">B(T) − B(T′) = (f(a) − f(x)) · (d(a) − d(x)) ≥ 0</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#12233D;border-radius:16px;padding:36px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1;color:#F2A945">3</p>
+<p style="font-size:28px;line-height:1.4;color:#F6F4EE">Đổi tiếp y với b được T″ có B(T″) ≤ B(T). T tối ưu nên T″ cũng tối ưu, và x, y là anh em sâu nhất.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Lập luận đổi chỗ (exchange argument)</p>
+<aside>Đây là tính chất lựa chọn tham lam. Ta lấy một cây tối ưu bất kỳ rồi đổi chỗ hai ký hiệu nhẹ nhất xuống vị trí sâu nhất. Vì ký hiệu nhẹ hơn được đặt sâu hơn, tích tần suất nhân độ sâu không tăng, nên chi phí cây không tăng. Do cây ban đầu đã tối ưu nên cây sau khi đổi chỗ cũng tối ưu và chứa lựa chọn tham lam.</aside>
+</section>

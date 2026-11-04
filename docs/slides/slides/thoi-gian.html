@@ -1,0 +1,40 @@
+<section id="thoi-gian" data-transition="fade" style="background:#ECE7DA;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Kết quả 6 · Thông lượng (MB/s)</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Huffman thích nghi chậm hơn tĩnh 5 lần khi nén</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-top:10px solid #2A6FB8;border-radius:16px;padding:32px">
+<p style="font-size:30px;font-weight:600;color:#12233D">Huffman tĩnh</p>
+<p style="font-size:24px;color:#5F6B7A">Nén</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1;color:#12233D">4,34</p>
+<p style="font-size:24px;color:#5F6B7A">Giải nén</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1;color:#12233D">1,14</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-top:10px solid #D9622B;border-radius:16px;padding:32px">
+<p style="font-size:30px;font-weight:600;color:#12233D">Huffman thích nghi</p>
+<p style="font-size:24px;color:#5F6B7A">Nén</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1;color:#12233D">0,84</p>
+<p style="font-size:24px;color:#5F6B7A">Giải nén</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1;color:#12233D">0,71</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-top:10px solid #8792A3;border-radius:16px;padding:32px">
+<p style="font-size:30px;font-weight:600;color:#12233D">LZ77</p>
+<p style="font-size:24px;color:#5F6B7A">Nén</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1;color:#12233D">0,93</p>
+<p style="font-size:24px;color:#5F6B7A">Giải nén</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1;color:#12233D">7,09</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-top:10px solid #E3B23C;border-radius:16px;padding:32px">
+<p style="font-size:30px;font-weight:600;color:#12233D">LZ78</p>
+<p style="font-size:24px;color:#5F6B7A">Nén</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1;color:#12233D">6,18</p>
+<p style="font-size:24px;color:#5F6B7A">Giải nén</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1;color:#12233D">11,20</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#3D4959">Huffman thích nghi phải đi từ lá lên gốc để phát mã và cập nhật cây ở mỗi ký hiệu. Python thuần trên máy chủ: chỉ so sánh tương đối giữa các thuật toán, không phản ánh tốc độ trên vi điều khiển.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Tính gộp trên 6 tệp lớn hơn 200 KB</p>
+<aside>Thông lượng tính gộp trên 6 tệp lớn hơn 200 KB. Khi nén, Huffman tĩnh nhanh hơn Huffman thích nghi khoảng 5 lần vì mã hóa chỉ cần tra bảng, còn Huffman thích nghi phải cập nhật cây sau mỗi ký hiệu. Khi giải nén, cả hai Huffman đều chậm vì xử lý từng bit, trong khi LZ77 và LZ78 sao chép theo cụm byte nên nhanh hơn nhiều. Cần lưu ý đây là Python thuần trên máy chủ, nên chỉ có ý nghĩa so sánh tương đối.</aside>
+</section>

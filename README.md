@@ -14,6 +14,7 @@ Nén và giải nén ảnh **không mất dữ liệu** bằng thuật toán **H
 - `scripts/fetch_iot_datasets.py`: tải dữ liệu vào `data/iot/` (không commit).
 - `scripts/benchmark_iot.py`, `scripts/plot_iot.py`: chạy thực nghiệm, ghi `docs/ket-qua/`.
 - `scripts/report/make.sh`: sinh lại báo cáo `.docx` từ kết quả (cần node `docx`, LibreOffice, poppler).
+- `docs/slides-bao-cao-cuoi-ki.pptx`: slide thuyết trình (45 trang, có ghi chú). Mã nguồn slide ở `docs/slides/`; xuất lại bằng `node scripts/slides/render.js <thư-mục-ảnh>` rồi `python scripts/slides/build_pptx.py <thư-mục-ảnh> docs/slides-bao-cao-cuoi-ki.pptx`.
 
 ```bash
 python scripts/fetch_iot_datasets.py

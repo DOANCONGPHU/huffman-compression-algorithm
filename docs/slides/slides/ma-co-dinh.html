@@ -1,0 +1,27 @@
+<section id="ma-co-dinh" data-transition="fade" style="background:#F6F4EE;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Huffman · Ý tưởng</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Ký tự hay gặp thì dùng mã ngắn</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:40px">
+<h3 style="font-size:32px;font-weight:600;color:#5F6B7A">Mã độ dài cố định</h3>
+<p style="font-size:28px;line-height:1.4;color:#3D4959">Mỗi ký tự trong tệp CSV chiếm 1 byte = 8 bit, kể cả dấu phẩy hay chữ số xuất hiện ở mọi dòng.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#12233D;border-radius:16px;padding:40px">
+<h3 style="font-size:32px;font-weight:600;color:#F2A945">Mã độ dài thay đổi</h3>
+<p style="font-size:28px;line-height:1.4;color:#F6F4EE">Ký tự xuất hiện nhiều nhận mã ngắn, ký tự hiếm nhận mã dài. Tổng số bit giảm.</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#FDFCF9;border-left:8px solid #2A6FB8;padding:28px 32px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Số liệu thật: tệp occupancy_datatraining (596.674 byte)</p>
+<div style="display:flex;gap:48px;align-items:flex-end">
+<div style="display:flex;flex-direction:column;gap:4px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1;color:#12233D">38</p><p style="font-size:26px;color:#3D4959">ký tự khác nhau</p></div>
+<div style="display:flex;flex-direction:column;gap:4px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1;color:#12233D">8 → 3,90</p><p style="font-size:26px;color:#3D4959">bit trung bình mỗi ký tự</p></div>
+<div style="display:flex;flex-direction:column;gap:4px"><p style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1;color:#2A6FB8">48,8%</p><p style="font-size:26px;color:#3D4959">kích thước sau nén Huffman</p></div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Số liệu: thực nghiệm của nhóm</p>
+<aside>Máy tính thường lưu mỗi ký tự văn bản bằng một byte, tức 8 bit, bất kể ký tự đó xuất hiện nhiều hay ít. Ý tưởng của mã Huffman là gán mã ngắn cho ký tự hay gặp và mã dài cho ký tự hiếm. Ví dụ thực tế từ tệp cảm biến trong phòng làm việc: tệp chỉ dùng 38 ký tự khác nhau, và mã Huffman cần trung bình 3,90 bit cho mỗi ký tự thay vì 8, nên tệp nén còn 48,8% kích thước gốc.</aside>
+</section>

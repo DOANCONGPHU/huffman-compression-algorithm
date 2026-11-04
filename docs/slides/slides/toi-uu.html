@@ -1,0 +1,24 @@
+<section id="toi-uu" data-transition="fade" style="background:#F6F4EE;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Kết quả 3 · Tính tối ưu</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Mã Huffman đạt gần đúng entropy</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:40px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:120px;font-weight:600;line-height:1;color:#12233D">0,072</p>
+<p style="font-size:30px;line-height:1.4;color:#3D4959">bit/byte: chênh lệch lớn nhất giữa độ dài mã trung bình L̄ và entropy H trên 11 tệp</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:40px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:120px;font-weight:600;line-height:1;color:#12233D">98%</p>
+<p style="font-size:30px;line-height:1.4;color:#3D4959">hiệu suất mã H / L̄ thấp nhất (tệp ionosphere), các tệp khác cao hơn</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#12233D;border-radius:16px;padding:40px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:120px;font-weight:600;line-height:1;color:#F2A945">[0, 1)</p>
+<p style="font-size:30px;line-height:1.4;color:#F6F4EE">cận lý thuyết của L̄ − H, vì H ≤ L̄ &lt; H + 1</p>
+</div>
+</div>
+<p style="font-size:30px;line-height:1.4;color:#12233D">Muốn nén tốt hơn phải đổi mô hình: khai thác chuỗi lặp, ngữ cảnh, hiệu giữa các giá trị liên tiếp. Cải tiến bộ mã không còn nhiều dư địa.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Moffat (2019): H ≤ L̄ &lt; H + 1</p>
+<aside>Từ kích thước tệp nén Huffman tĩnh trừ đi phần đầu và bảng mã, nhóm tính được độ dài mã trung bình thực tế và so với entropy bậc 0. Trên cả 11 tệp, chênh lệch tối đa là 0,072 bit mỗi byte, nằm sâu trong cận lý thuyết dưới 1 bit. Hiệu suất mã luôn trên 98 phần trăm. Như vậy cài đặt Huffman đạt gần đúng giới hạn nén của mô hình bậc 0.</aside>
+</section>

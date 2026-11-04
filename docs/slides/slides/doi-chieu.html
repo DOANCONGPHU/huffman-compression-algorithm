@@ -1,0 +1,28 @@
+<section id="doi-chieu" data-transition="fade" style="background:#F6F4EE;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Đối chiếu</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Đối chiếu với Nasif và cộng sự (2021)</h2>
+</div>
+<div style="display:flex;gap:48px">
+<div style="width:1040px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:26px;line-height:1.4;color:#5F6B7A">Tỉ lệ nén (%): nhóm / bài báo</p>
+<table style="width:1040px;font-size:26px;color:#3D4959">
+<tr style="background:#DCE5F1"><th style="width:32%;text-align:left">Tệp</th><th style="width:17%;text-align:right">Huffman tĩnh</th><th style="width:17%;text-align:right">Huffman thích nghi</th><th style="width:17%;text-align:right">LZ77</th><th style="width:17%;text-align:right">LZ78</th></tr>
+<tr><td>min_temperatures</td><td style="text-align:right">48 / 49</td><td style="text-align:right">48 / 44</td><td style="text-align:right"><b>29 / 172</b></td><td style="text-align:right">32 / 102</td></tr>
+<tr><td>sunspots</td><td style="text-align:right">49 / 49</td><td style="text-align:right">49 / 45</td><td style="text-align:right"><b>37 / 166</b></td><td style="text-align:right">37 / 98</td></tr>
+<tr><td>ionosphere</td><td style="text-align:right">45 / 45</td><td style="text-align:right">45 / 45</td><td style="text-align:right"><b>56 / 168</b></td><td style="text-align:right">47 / 120</td></tr>
+<tr><td>female_births</td><td style="text-align:right">47 / 49</td><td style="text-align:right">47 / 43</td><td style="text-align:right"><b>30 / 165</b></td><td style="text-align:right">34 / 91</td></tr>
+<tr><td>shampoo_sales</td><td style="text-align:right">61 / 121</td><td style="text-align:right">56 / 67</td><td style="text-align:right"><b>94 / 201</b></td><td style="text-align:right">65 / 197</td></tr>
+</table>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#12233D;border-radius:16px;padding:40px">
+<h3 style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;color:#F2A945">Nhận xét</h3>
+<p style="font-size:28px;line-height:1.4;color:#F6F4EE">Huffman tĩnh: hai nghiên cứu gần nhau trên tệp lớn (45–49%).</p>
+<p style="font-size:28px;line-height:1.4;color:#F6F4EE">LZ77: bài báo luôn trên 165% (phình ra); nhóm đo 29–56% trên bốn tệp đầu.</p>
+<p style="font-size:28px;line-height:1.4;color:#B9C4D6">Nguyên nhân có thể là tham số LZ77 chưa được công bố; đây mới là giả thuyết.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Bài báo: Bảng 2, Nasif và cs. (2021)</p>
+<aside>Mỗi ô ghi kết quả của nhóm trước, kết quả của bài báo sau. Với Huffman tĩnh, hai nghiên cứu gần nhau trên các tệp lớn. Với LZ77 thì khác xa: trong bài báo LZ77 luôn trên 165 phần trăm, tức dữ liệu bị phình ra, còn nhóm đo được 29 đến 56 phần trăm. Bài báo không công bố kích thước cửa sổ hay cách mã hóa bộ ba nên nhóm không thể kiểm chứng nguyên nhân; chỉ có thể nói rằng với tham số theo mô tả gốc của Ziv và Lempel, LZ77 và LZ78 nén dữ liệu CSV tốt hơn Huffman bậc 0. Tệp nhiệt độ Melbourne trong bài báo nhỏ hơn bản nhóm dùng nên có thể là phiên bản khác.</aside>
+</section>

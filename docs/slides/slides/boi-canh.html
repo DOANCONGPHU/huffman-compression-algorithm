@@ -1,0 +1,26 @@
+<section id="boi-canh" data-transition="fade" style="background:#F6F4EE;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Bối cảnh</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Nút IoT thiếu bộ nhớ, dữ liệu thì liên tục tăng</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:40px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:120px;font-weight:600;line-height:1;color:#12233D">2 KB</p>
+<p style="font-size:30px;line-height:1.4;color:#3D4959">SRAM của Arduino Uno (ATmega328P)</p>
+<p style="font-size:24px;line-height:1.4;color:#5F6B7A">Nasif và cs. (2021), Bảng 1</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:40px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:120px;font-weight:600;line-height:1;color:#12233D">480×</p>
+<p style="font-size:30px;line-height:1.4;color:#3D4959">năng lượng truyền một bit qua sóng vô tuyến so với một phép cộng</p>
+<p style="font-size:24px;line-height:1.4;color:#5F6B7A">Kimura và Latifi, dẫn lại trong Nasif và cs. (2021)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#12233D;border-radius:16px;padding:40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#F2A945">Hướng giải quyết</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:44px;font-weight:600;line-height:1.15;color:#F6F4EE">Nén không mất dữ liệu ngay tại nút</p>
+<p style="font-size:28px;line-height:1.4;color:#B9C4D6">Giảm số byte phải lưu tạm và số bit phải truyền</p>
+</div>
+</div>
+<p style="font-size:30px;line-height:1.4;color:#3D4959">Dữ liệu cảm biến là dữ liệu số và chuỗi thời gian, nên cần nén <b>không mất dữ liệu</b> (lossless).</p>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<aside>Nút cảm biến IoT thường chỉ có vài KB SRAM, ví dụ Arduino Uno chỉ có 2 KB. Khi nhiều cảm biến cùng gửi dữ liệu, bộ đệm dễ tràn. Truyền một bit qua sóng vô tuyến tốn năng lượng gấp khoảng 480 lần một phép cộng. Vì vậy nén dữ liệu ngay tại nút là hướng đáng quan tâm. Dữ liệu cảm biến là dữ liệu số nên cần nén không mất dữ liệu.</aside>
+</section>

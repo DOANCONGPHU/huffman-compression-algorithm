@@ -1,0 +1,28 @@
+<section id="cach-do" data-transition="fade" style="background:#F6F4EE;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Thực nghiệm · Phương pháp đo</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Cách đo: công bằng và kiểm chứng được</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:24px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:32px">
+<h3 style="font-size:30px;font-weight:600;color:#12233D">Tỉ lệ nén</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4959">Tính trên toàn bộ tệp nén, gồm 4 byte đầu và bảng mã, giống cách tính của bài báo.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:32px">
+<h3 style="font-size:30px;font-weight:600;color:#12233D">Thời gian</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4959">Mỗi phép nén, giải nén chạy 3 lần, lấy trung vị; thí nghiệm dựng cây chạy 7 lần.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:32px">
+<h3 style="font-size:30px;font-weight:600;color:#12233D">Kiểm chứng</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4959">Mọi lần đo đều giải nén và so sánh từng byte với dữ liệu gốc; sai một byte là dừng.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:32px">
+<h3 style="font-size:30px;font-weight:600;color:#12233D">Môi trường</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4959">Python 3.13.18; Intel Xeon 2,10 GHz, 4 nhân ảo; Linux. Cả 4 thuật toán viết bằng Python thuần.</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#12233D">Mốc tham chiếu: DEFLATE (thư viện zlib, mức 9) kết hợp LZ77 với Huffman; chỉ so tỉ lệ nén vì nó viết bằng C.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Mã đo: scripts/benchmark_iot.py</p>
+<aside>Để so sánh công bằng, tỉ lệ nén được tính trên toàn bộ tệp nén, kể cả phần đầu và bảng mã. Thời gian lấy trung vị của 3 lần chạy, riêng thí nghiệm dựng cây chạy 7 lần vì mỗi lần rất nhanh. Mỗi lần đo đều giải nén lại và so từng byte với bản gốc. Tất cả chạy bằng Python thuần trên cùng một máy ảo. DEFLATE của thư viện zlib chỉ dùng làm mốc tỉ lệ nén.</aside>
+</section>

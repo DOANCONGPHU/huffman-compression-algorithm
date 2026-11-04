@@ -1,0 +1,26 @@
+<section id="bo-nho" data-transition="fade" style="background:#ECE7DA;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Bối cảnh · Bộ nhớ của bo mạch</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">SRAM của nhiều bo mạch chỉ vài KB</h2>
+</div>
+<div style="display:flex;gap:48px">
+<table style="width:1080px;font-size:26px;color:#3D4959">
+<tr style="background:#DCE5F1"><th style="width:22%;text-align:left">Bo mạch</th><th style="width:30%;text-align:left">Vi điều khiển</th><th style="width:16%;text-align:right">Tốc độ</th><th style="width:16%;text-align:right">SRAM</th><th style="width:16%;text-align:right">Flash</th></tr>
+<tr><td>Gemma</td><td>ATtiny85</td><td style="text-align:right">8 MHz</td><td style="text-align:right"><b>0,5 KB</b></td><td style="text-align:right">8 KB</td></tr>
+<tr><td>Uno</td><td>ATmega328P</td><td style="text-align:right">16 MHz</td><td style="text-align:right"><b>2 KB</b></td><td style="text-align:right">32 KB</td></tr>
+<tr><td>Mega 2560</td><td>ATmega2560</td><td style="text-align:right">16 MHz</td><td style="text-align:right"><b>8 KB</b></td><td style="text-align:right">256 KB</td></tr>
+<tr><td>MKR1000</td><td>SAMD21 Cortex-M0+</td><td style="text-align:right">48 MHz</td><td style="text-align:right"><b>32 KB</b></td><td style="text-align:right">256 KB</td></tr>
+<tr><td>Due</td><td>ATSAM3X8E</td><td style="text-align:right">84 MHz</td><td style="text-align:right"><b>96 KB</b></td><td style="text-align:right">512 KB</td></tr>
+</table>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:36px">
+<h3 style="font-size:30px;font-weight:600;color:#12233D">Ba loại bộ nhớ</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4959"><b>Flash:</b> chứa chương trình, không mất khi tắt nguồn.</p>
+<p style="font-size:26px;line-height:1.4;color:#3D4959"><b>SRAM:</b> chứa dữ liệu nhận và gửi qua mạng, mất khi tắt nguồn.</p>
+<p style="font-size:26px;line-height:1.4;color:#3D4959"><b>EEPROM:</b> dữ liệu lâu dài như thông tin Wi-Fi.</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#12233D">Dữ liệu cảm biến nằm trong SRAM, loại bộ nhớ nhỏ nhất trên bo mạch.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Trích Nasif và cs. (2021), Bảng 1</p>
+<aside>Bảng trích từ Bảng 1 của bài báo Nasif, so sánh các bo mạch Arduino. Bo phổ biến nhất là Arduino Uno chỉ có 2 KB SRAM; bo nhỏ nhất Gemma chỉ có nửa KB. Theo bài báo, SRAM là nơi chứa dữ liệu nhận và gửi qua mạng, còn Flash chứa chương trình và EEPROM chứa dữ liệu lâu dài như thông tin đăng nhập Wi-Fi. Vì vậy dữ liệu cảm biến phải nằm gọn trong vài KB.</aside>
+</section>

@@ -1,0 +1,22 @@
+<section id="tham-lam" data-transition="fade" style="background:#ECE7DA;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Huffman · Chiến lược tham lam</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Thuật toán tham lam là gì?</h2>
+</div>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:40px;line-height:1.3;color:#12233D">Ở mỗi bước, chọn phương án tốt nhất ngay lúc đó và không quay lại sửa.</p>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:36px">
+<h3 style="font-size:30px;font-weight:600;color:#5F6B7A">Không phải lúc nào cũng đúng</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4959">Đổi 6 đồng bằng các đồng 1, 3, 4. Tham lam lấy 4 + 1 + 1 = <b>3 đồng</b>, nhưng 3 + 3 chỉ cần <b>2 đồng</b>.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#12233D;border-radius:16px;padding:36px">
+<h3 style="font-size:30px;font-weight:600;color:#F2A945">Đúng khi có hai tính chất</h3>
+<p style="font-size:26px;line-height:1.4;color:#F6F4EE"><b>Lựa chọn tham lam:</b> có một lời giải tối ưu chứa lựa chọn đầu tiên.</p>
+<p style="font-size:26px;line-height:1.4;color:#F6F4EE"><b>Cấu trúc con tối ưu:</b> phần còn lại là bài toán cùng dạng, giải tối ưu rồi ghép lại vẫn tối ưu.</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#12233D">Với Huffman, lựa chọn tham lam là <b>gộp hai ký hiệu có tần suất nhỏ nhất</b>; hai tính chất được chứng minh ở Bổ đề 1 và Bổ đề 2.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Cormen và cs., chương 16</p>
+<aside>Thuật toán tham lam chọn phương án tốt nhất ở từng bước mà không quay lại. Cách này không phải lúc nào cũng cho kết quả tối ưu: ví dụ đổi 6 đồng bằng các đồng mệnh giá 1, 3 và 4, tham lam lấy đồng 4 trước rồi cần thêm hai đồng 1, tổng 3 đồng, trong khi chỉ cần hai đồng 3. Vì vậy muốn dùng tham lam phải chứng minh bài toán có tính chất lựa chọn tham lam và cấu trúc con tối ưu. Huffman có cả hai tính chất này, như sẽ chứng minh ở phần sau.</aside>
+</section>

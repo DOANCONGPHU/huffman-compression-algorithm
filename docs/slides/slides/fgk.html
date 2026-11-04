@@ -1,0 +1,28 @@
+<section id="fgk" data-transition="fade" style="background:#F6F4EE;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Biến thể · Huffman thích nghi</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">FGK: hai bên cùng dựng cây khi dữ liệu đến</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:24px">
+<div style="display:flex;gap:24px;align-items:flex-start;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:32px">
+<div style="flex:none;width:52px;height:52px;border-radius:26px;background:#2A6FB8;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:600;color:#F6F4EE">1</p></div>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#3D4959">Bắt đầu với cây chỉ có nút <b>NYT</b> (chưa truyền), trọng số 0.</p>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:32px">
+<div style="flex:none;width:52px;height:52px;border-radius:26px;background:#2A6FB8;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:600;color:#F6F4EE">2</p></div>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#3D4959">Ký hiệu đã gặp: phát đường đi từ gốc tới lá. Ký hiệu mới: phát mã NYT rồi 8 bit thô.</p>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:32px">
+<div style="flex:none;width:52px;height:52px;border-radius:26px;background:#2A6FB8;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:600;color:#F6F4EE">3</p></div>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#3D4959">Cập nhật: đi từ lá lên gốc, đổi chỗ với nút dẫn đầu khối cùng trọng số, rồi tăng trọng số thêm 1.</p>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start;background:#12233D;border-radius:16px;padding:32px">
+<div style="flex:none;width:52px;height:52px;border-radius:26px;background:#F2A945;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:600;color:#12233D">4</p></div>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#F6F4EE">Bộ giải mã làm y hệt nên luôn có cùng cây: <b>không cần gửi bảng mã</b>.</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#12233D">Cơ sở: cây là cây Huffman khi và chỉ khi có <b>tính chất anh em</b>: xếp các nút theo trọng số không giảm thì từng cặp liền nhau là anh em (Gallager, 1978).</p>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Gallager (1978); Knuth (1985)</p>
+<aside>Huffman thích nghi theo thuật toán FGK, đặt theo tên Faller, Gallager và Knuth. Bộ mã hóa và bộ giải mã cùng bắt đầu từ cây chỉ có nút NYT. Với mỗi ký hiệu, bộ mã hóa phát mã hiện tại của nó, hoặc mã NYT kèm 8 bit thô nếu ký hiệu mới, rồi cập nhật cây. Bước cập nhật đổi chỗ nút với nút dẫn đầu khối cùng trọng số trước khi tăng trọng số, nhờ đó giữ tính chất anh em mà Gallager chứng minh là điều kiện cần và đủ để cây là cây Huffman. Bộ giải mã làm đúng các bước này nên không cần bảng mã. Bộ kiểm thử của nhóm kiểm tra tự động tính chất anh em sau mỗi lần cập nhật.</aside>
+</section>

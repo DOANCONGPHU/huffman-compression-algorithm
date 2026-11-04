@@ -1,0 +1,28 @@
+<section id="heap" data-transition="fade" style="background:#ECE7DA;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Độ phức tạp · Hàng đợi ưu tiên</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Min-heap: lấy phần tử nhỏ nhất trong O(log n)</h2>
+</div>
+<p style="font-size:30px;line-height:1.4;color:#12233D">Cây nhị phân gần đầy đủ, lưu trong mảng; mỗi nút không lớn hơn hai con, nên phần tử nhỏ nhất luôn ở gốc. Chiều cao cây khoảng log₂ n.</p>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:36px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">BUILD-HEAP</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:44px;font-weight:600;line-height:1.1;color:#12233D">O(n)</p>
+<p style="font-size:26px;line-height:1.4;color:#3D4959">Sắp lại mảng ban đầu thành heap một lần</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:36px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">EXTRACT-MIN</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:44px;font-weight:600;line-height:1.1;color:#12233D">O(log n)</p>
+<p style="font-size:26px;line-height:1.4;color:#3D4959">Lấy gốc, đưa phần tử cuối lên gốc rồi đẩy dần xuống</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FDFCF9;border:1px solid #DDD8CA;border-radius:16px;padding:36px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">INSERT</p>
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:44px;font-weight:600;line-height:1.1;color:#12233D">O(log n)</p>
+<p style="font-size:26px;line-height:1.4;color:#3D4959">Thêm vào cuối mảng rồi đẩy dần lên</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#3D4959">Cài đặt của nhóm dùng mô-đun <b>heapq</b> của thư viện chuẩn Python, là một min-heap nhị phân.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Cormen và cs., chương 6</p>
+<aside>Thuật toán Huffman cần lấy nhanh hai cây có trọng số nhỏ nhất. Cấu trúc phù hợp là min-heap: một cây nhị phân gần đầy đủ lưu trong mảng, trong đó mỗi nút không lớn hơn hai con của nó, nên phần tử nhỏ nhất luôn nằm ở gốc. Dựng heap từ n phần tử tốn O(n). Lấy phần tử nhỏ nhất và chèn phần tử mới đều tốn O(log n) vì chỉ đi dọc chiều cao cây. Cài đặt của nhóm dùng mô-đun heapq của Python.</aside>
+</section>

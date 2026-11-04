@@ -1,0 +1,17 @@
+<section id="tinh-thich-nghi" data-transition="fade" style="background:#ECE7DA;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">So sánh lý thuyết</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">Huffman tĩnh và Huffman thích nghi (FGK)</h2>
+</div>
+<table style="width:1664px;font-size:26px;color:#3D4959">
+<tr style="background:#DCE5F1"><th style="width:22%;text-align:left">Tiêu chí</th><th style="width:39%;text-align:left">Huffman tĩnh (hai lượt)</th><th style="width:39%;text-align:left">Huffman thích nghi (FGK)</th></tr>
+<tr><td><b>Số lượt duyệt</b></td><td>2 lượt; phải đệm toàn bộ dữ liệu</td><td>1 lượt; mã hóa ngay khi ký hiệu đến</td></tr>
+<tr><td><b>Thông tin phụ</b></td><td>Bảng mã: 2 + 2k byte</td><td>Không có; ký hiệu mới gửi mã NYT + 8 bit thô</td></tr>
+<tr><td><b>Số bit</b></td><td>S, tối ưu cho cả khối (chưa tính bảng mã)</td><td>FGK ≤ 2S + t − 4n + 2; thuật toán Λ của Vitter: dưới S + t</td></tr>
+<tr><td><b>Mỗi ký hiệu</b></td><td>O(1): tra bảng mã</td><td>O(d): phát mã và cập nhật cây, d là độ sâu lá</td></tr>
+<tr><td><b>Khi có lỗi bit</b></td><td>Chỉ hỏng trong khối</td><td>Mất đồng bộ cây đến hết luồng</td></tr>
+</table>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Gallager (1978), Knuth (1985), Vitter (1987)</p>
+<aside>Huffman tĩnh cần hai lượt: một lượt đếm tần suất, một lượt mã hóa, và phải gửi kèm bảng mã. Huffman thích nghi theo thuật toán FGK của Faller, Gallager và Knuth chỉ cần một lượt: bộ mã hóa và bộ giải mã cùng bắt đầu từ cây chỉ có nút NYT và cùng cập nhật cây sau mỗi ký hiệu, nên không cần gửi bảng tần suất. Cơ sở là tính chất anh em của Gallager: cây là cây Huffman khi và chỉ khi các nút xếp theo trọng số không giảm thì các cặp nút liên tiếp là anh em. Đổi lại, mỗi ký hiệu tốn O(d) và một lỗi bit làm hai phía mất đồng bộ.</aside>
+</section>

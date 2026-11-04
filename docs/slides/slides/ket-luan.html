@@ -1,0 +1,26 @@
+<section id="ket-luan" data-transition="fade" style="background:#12233D;color:#EAE6DA;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#F2A945">Kết luận</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#F6F4EE">Bốn kết luận chính</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:24px">
+<div style="display:flex;gap:24px;align-items:flex-start;background:#1D3557;border-radius:16px;padding:32px">
+<div style="flex:none;width:52px;height:52px;border-radius:26px;background:#F2A945;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:600;color:#12233D">1</p></div>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#F6F4EE">Mã Huffman chỉ cao hơn entropy tối đa 0,072 bit/byte: khớp với chứng minh tối ưu.</p>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start;background:#1D3557;border-radius:16px;padding:32px">
+<div style="flex:none;width:52px;height:52px;border-radius:26px;background:#F2A945;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:600;color:#12233D">2</p></div>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#F6F4EE">Dựng cây tăng đúng bậc: n log n với heap, n² với quét tuyến tính.</p>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start;background:#1D3557;border-radius:16px;padding:32px">
+<div style="flex:none;width:52px;height:52px;border-radius:26px;background:#F2A945;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:600;color:#12233D">3</p></div>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#F6F4EE">Dữ liệu dài: Huffman tĩnh và thích nghi ngang nhau. Gói nhỏ (≤ 2 KB): thích nghi vượt trội.</p>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-start;background:#1D3557;border-radius:16px;padding:32px">
+<div style="flex:none;width:52px;height:52px;border-radius:26px;background:#F2A945;display:flex;align-items:center;justify-content:center"><p style="font-size:28px;font-weight:600;color:#12233D">4</p></div>
+<p style="flex:1;font-size:28px;line-height:1.4;color:#F6F4EE">Dữ liệu CSV: LZ78, LZ77 nén tốt hơn Huffman bậc 0; khác Nasif và cs., có thể do tham số LZ77.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#B9C4D6">Nhóm 8 · Thuật toán nâng cao</p>
+<aside>Bốn kết luận chính. Một: cài đặt Huffman đạt gần đúng entropy, xác nhận thực nghiệm tính tối ưu đã chứng minh. Hai: thời gian dựng cây đúng bậc lý thuyết. Ba: với dữ liệu dài, Huffman tĩnh và thích nghi gần như bằng nhau, còn với gói nhỏ từ 2 KB trở xuống thì Huffman thích nghi vượt trội, phù hợp với nút IoT. Bốn: trên dữ liệu CSV, LZ78 và LZ77 nén tốt hơn Huffman bậc 0, khác với bài báo nền tảng; nhóm nêu rõ nguyên nhân chỉ là giả thuyết. Hướng phát triển: kết hợp biến đổi delta, dùng thuật toán Λ của Vitter, nạp sẵn bảng Huffman từ gateway và cài đặt bằng C để đo trên vi điều khiển thật.</aside>
+</section>

@@ -1,0 +1,45 @@
+<section id="ti-le-nen" data-transition="fade" style="background:#F6F4EE;color:#3D4959;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#2A6FB8">Kết quả 1 · Tỉ lệ nén</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#12233D">LZ78, LZ77 nén tốt hơn Huffman trên dữ liệu CSV</h2>
+</div>
+<div style="display:flex;gap:64px">
+<div style="width:1000px;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:26px;line-height:1.4;color:#5F6B7A">Tỉ lệ nén trung bình trên 6 tệp IoT (%), càng ngắn càng tốt</p>
+<div style="display:flex;align-items:center;gap:24px">
+<p style="width:330px;font-size:28px;font-weight:500;color:#12233D">Huffman tĩnh</p>
+<div style="width:458px;height:52px;background:#2A6FB8;border-radius:0 8px 8px 0"></div>
+<p style="font-size:32px;font-weight:600;color:#12233D">45,8</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px">
+<p style="width:330px;font-size:28px;font-weight:500;color:#12233D">Huffman thích nghi</p>
+<div style="width:458px;height:52px;background:#D9622B;border-radius:0 8px 8px 0"></div>
+<p style="font-size:32px;font-weight:600;color:#12233D">45,8</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px">
+<p style="width:330px;font-size:28px;font-weight:500;color:#12233D">LZ77</p>
+<div style="width:378px;height:52px;background:#8792A3;border-radius:0 8px 8px 0"></div>
+<p style="font-size:32px;font-weight:600;color:#12233D">37,8</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px">
+<p style="width:330px;font-size:28px;font-weight:500;color:#12233D">LZ78</p>
+<div style="width:320px;height:52px;background:#E3B23C;border-radius:0 8px 8px 0"></div>
+<p style="font-size:32px;font-weight:600;color:#12233D">32,0</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px">
+<p style="width:330px;font-size:28px;color:#5F6B7A">DEFLATE (tham chiếu)</p>
+<div style="width:199px;height:52px;background:#D5D9E0;border-radius:0 8px 8px 0"></div>
+<p style="font-size:32px;font-weight:600;color:#5F6B7A">19,9</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#12233D;border-radius:16px;padding:40px">
+<h3 style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;color:#F2A945">Vì sao?</h3>
+<p style="font-size:28px;line-height:1.4;color:#F6F4EE">CSV có nhiều chuỗi lặp: dấu thời gian, dấu ngăn cách, giá trị đổi chậm.</p>
+<p style="font-size:28px;line-height:1.4;color:#F6F4EE">Huffman mã hóa từng byte độc lập nên không khai thác được chuỗi lặp.</p>
+<p style="font-size:28px;line-height:1.4;color:#B9C4D6">DEFLATE (LZ77 + Huffman) tốt nhất: hai mô hình bổ sung cho nhau.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#5F6B7A">Nhóm 8 · Thuật toán nâng cao</p>
+<p style="position:absolute;left:1032px;bottom:64px;width:760px;text-align:right;font-size:24px;color:#5F6B7A">Số liệu: thực nghiệm của nhóm</p>
+<aside>Trung bình trên 6 tệp cảm biến IoT, hai biến thể Huffman cùng đạt 45,8 phần trăm, LZ77 đạt 37,8 và LZ78 đạt 32,0 phần trăm. Kết quả này khác với kết luận của bài báo nền tảng. Nguyên nhân là dữ liệu CSV chứa nhiều chuỗi lặp mà mã Huffman bậc 0 không khai thác được. DEFLATE, vốn kết hợp LZ77 với mã Huffman, chỉ còn 19,9 phần trăm; nhóm dùng nó làm mốc tham chiếu, không so sánh thời gian vì nó viết bằng C.</aside>
+</section>
