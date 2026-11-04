@@ -4,7 +4,9 @@ const fs = require("fs");
 const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, AlignmentType, LevelFormat, PageBreak, Footer,
-  PageNumber, Header, LineRuleType, TabStopType,
+  PageNumber, Header, LineRuleType, TabStopType, ImageRun, Table, TableRow, TableCell,
+  WidthType, BorderStyle, HorizontalPositionRelativeFrom, VerticalPositionRelativeFrom,
+  TextWrappingType,
 } = require("docx");
 const H = require("./helpers");
 const { REFS } = require("./references");
@@ -24,24 +26,91 @@ function center(text, opts = {}) {
   });
 }
 
+// Thông tin nhóm thực hiện (in trên trang bìa).
+const SCHOOL = "TRƯỜNG CAO ĐẲNG KỸ THUẬT – CÔNG NGHỆ BÁCH KHOA"; // theo bìa mẫu của nhóm
+const GROUP = {
+  number: "8",
+  members: [
+    { name: "Đoàn Công Phú", id: "", cls: "34CNTT11" },
+    { name: "Vũ Quang Vinh", id: "", cls: "34CNTT11" },
+  ],
+};
+
+// Trang bìa dựng lại theo tệp “Bìa mẫu báo cáo.docx” do nhóm cung cấp: khung viền nằm sau chữ,
+// logo ở giữa, cỡ chữ 14/16/18 pt in đậm, bảng thông tin sinh viên không viền thụt 1701 DXA.
+// Lề trang, vị trí và kích thước hình (EMU) chép đúng từ tệp mẫu.
+const ASSETS = path.join(__dirname, "assets");
+const EMU_PER_PX = 9525;
+const COVER_MARGIN = { top: 1418, bottom: 1418, left: 1701, right: 1134 };
+
 function titlePage() {
-  const label = (k, v) => new Paragraph({
-    indent: { left: 1700 },
-    spacing: { after: 100 },
-    children: [new TextRun({ text: k, bold: true, size: 26 }), new TextRun({ text: v, size: 26 })],
+  const line = (text, size, opts = {}) => new Paragraph({
+    alignment: opts.left ? AlignmentType.LEFT : AlignmentType.CENTER,
+    spacing: { before: opts.before || 0, after: opts.after ?? 160, line: opts.line || 259, lineRule: LineRuleType.AUTO },
+    children: [...(opts.lead || []), ...(text ? [new TextRun({ text, bold: true, size })] : [])],
   });
+  const frame = new ImageRun({
+    type: "jpg",
+    data: fs.readFileSync(path.join(ASSETS, "bia_khung.jpg")),
+    transformation: { width: 6226460 / EMU_PER_PX, height: 9486932 / EMU_PER_PX },
+    outline: { type: "solidFill", solidFillType: "rgb", value: "0000FF", width: 9525 },
+    altText: { name: "khung doi", description: "khung doi", title: "khung doi" },
+    floating: {
+      horizontalPosition: { relative: HorizontalPositionRelativeFrom.MARGIN, offset: -244563 },
+      verticalPosition: { relative: VerticalPositionRelativeFrom.PARAGRAPH, offset: -282290 },
+      behindDocument: true,
+      allowOverlap: true,
+      wrap: { type: TextWrappingType.NONE },
+    },
+  });
+  const logo = new ImageRun({
+    type: "jpg",
+    data: fs.readFileSync(path.join(ASSETS, "bia_logo.jpg")),
+    transformation: { width: 1991995 / EMU_PER_PX, height: 1991995 / EMU_PER_PX },
+  });
+
+  // Bảng thông tin: hai cột 2263 + 4686 DXA, không viền, chữ đậm 14 pt, giãn dòng 1,5.
+  const noBorder = { style: BorderStyle.NONE, size: 0, color: "auto" };
+  const cell = (text, width) => new TableCell({
+    width: { size: width, type: WidthType.DXA },
+    borders: { top: noBorder, bottom: noBorder, left: noBorder, right: noBorder },
+    children: [new Paragraph({ spacing: { after: 0, line: 360, lineRule: LineRuleType.AUTO },
+      children: [new TextRun({ text, bold: true, size: 28 })] })],
+  });
+  const info = [
+    ["Sinh viên:", GROUP.members[0].name.toUpperCase()],
+    ...GROUP.members.slice(1).map((m) => ["", m.name.toUpperCase()]),
+    ["Mã số sinh viên:", GROUP.members.map((m) => m.id || "…………").join(" ; ")],
+    ["Lớp:", [...new Set(GROUP.members.map((m) => m.cls))].join(", ")],
+    ["Nhóm:", GROUP.number],
+  ];
+  const infoTable = new Table({
+    width: { size: 6949, type: WidthType.DXA },
+    columnWidths: [2263, 4686],
+    indent: { size: 1701, type: WidthType.DXA },
+    borders: { top: noBorder, bottom: noBorder, left: noBorder, right: noBorder,
+      insideHorizontal: noBorder, insideVertical: noBorder },
+    rows: info.map(([k, v]) => new TableRow({ children: [cell(k, 2263), cell(v, 4686)] })),
+  });
+
   return [
-    center("BỘ GIÁO DỤC VÀ ĐÀO TẠO", { size: 26 }),
-    center("TRƯỜNG ĐẠI HỌC THỦY LỢI", { bold: true, size: 28, after: 1400 }),
-    center("BÁO CÁO BÀI TẬP LỚN CUỐI KỲ", { bold: true, size: 30 }),
-    center("Môn học: Thuật toán nâng cao", { size: 26, after: 900 }),
-    center("ỨNG DỤNG THUẬT TOÁN THAM LAM HUFFMAN", { bold: true, size: 34 }),
-    center("TRONG NÉN DỮ LIỆU CẢM BIẾN IoT", { bold: true, size: 34, after: 1400 }),
-    label("Sinh viên thực hiện: ", "……………………………………"),
-    label("Mã sinh viên: ", "……………………………………"),
-    label("Lớp: ", "……………………………………"),
-    label("Giảng viên hướng dẫn: ", "……………………………………"),
-    center("Hà Nội, tháng 11 năm 2026", { size: 26, before: 1800 }),
+    line("BỘ GIÁO DỤC VÀ ĐÀO TẠO", 28, { lead: [frame], after: 0 }),
+    line(SCHOOL, 28),
+    line("", 32),
+    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 160 }, children: [logo] }),
+    line("", 24),
+    line("BÁO CÁO BÀI TẬP LỚN CUỐI KỲ", 32),
+    line("MÔN: THUẬT TOÁN NÂNG CAO", 32),
+    line("", 32),
+    line("ỨNG DỤNG THUẬT TOÁN THAM LAM HUFFMAN", 36, { line: 276, after: 0 }),
+    line("TRONG NÉN DỮ LIỆU CẢM BIẾN IoT", 36, { line: 276 }),
+    line("", 28, { line: 276 }),
+    line("CBHD: ……………………………", 28, { line: 276 }),
+    line("", 28, { line: 276 }),
+    infoTable,
+    line("", 28, { line: 276 }),
+    line("", 28, { line: 276 }),
+    line("Hà Nội – 2026", 28, { line: 276, after: 0, before: 520 }),
     new Paragraph({ children: [new PageBreak()] }),
   ];
 }
@@ -118,7 +187,7 @@ const BODY_HEADINGS = [...H.HEADINGS];
 fs.writeFileSync(path.join(ROOT, "docs", "ket-qua", "headings.json"), JSON.stringify(BODY_HEADINGS, null, 1));
 
 const doc = new Document({
-  creator: "Bài tập lớn cuối kỳ — Thuật toán nâng cao",
+  creator: "Nhóm 8 — Đoàn Công Phú, Vũ Quang Vinh (34CNTT11)",
   title: "Ứng dụng thuật toán tham lam Huffman trong nén dữ liệu cảm biến IoT",
   styles: {
     default: { document: { run: { font: FONT, size: 26 }, paragraph: { spacing: { line: 312, lineRule: LineRuleType.AUTO } } } },
@@ -145,7 +214,7 @@ const doc = new Document({
   sections: [
     {
       properties: { page: { size: { width: 11906, height: 16838 },
-        margin: { top: 1134, bottom: 1134, left: 1701, right: 1134 } } },
+        margin: COVER_MARGIN } },
       children: titlePage(),
     },
     {
