@@ -47,7 +47,12 @@ plt.rcParams.update({
 
 
 def ratio_chart(res: dict) -> None:
-    rows = res["datasets"]
+    order = ["appliances_energy.csv", "household_power_30days.txt", "beijing_pollution.csv",
+             "occupancy_datatraining.txt", "occupancy_datatest.txt", "occupancy_datatest2.txt",
+             "daily_min_temperatures.csv", "monthly_sunspots.csv", "ionosphere.csv",
+             "daily_female_births.csv", "shampoo_sales.csv"]  # cùng thứ tự với Bảng 6
+    by_file = {r["file"]: r for r in res["datasets"]}
+    rows = [by_file[f] for f in order]
     names = [r["file"].rsplit(".", 1)[0] for r in rows]
     fig, ax = plt.subplots(figsize=(7.2, 6.4))
     k = len(COLORS)

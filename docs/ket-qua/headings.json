@@ -1,0 +1,162 @@
+[
+ {
+  "level": 1,
+  "text": "TÓM TẮT"
+ },
+ {
+  "level": 1,
+  "text": "1. GIỚI THIỆU"
+ },
+ {
+  "level": 2,
+  "text": "1.1. Bối cảnh và động lực"
+ },
+ {
+  "level": 2,
+  "text": "1.2. Mục tiêu và phạm vi"
+ },
+ {
+  "level": 2,
+  "text": "1.3. Cấu trúc báo cáo"
+ },
+ {
+  "level": 1,
+  "text": "2. TỔNG QUAN NGHIÊN CỨU LIÊN QUAN"
+ },
+ {
+  "level": 2,
+  "text": "2.1. Phân loại thuật toán nén không mất dữ liệu"
+ },
+ {
+  "level": 2,
+  "text": "2.2. Các nghiên cứu cập nhật"
+ },
+ {
+  "level": 2,
+  "text": "2.3. Khoảng trống nghiên cứu"
+ },
+ {
+  "level": 1,
+  "text": "3. CƠ SỞ LÝ THUYẾT VÀ TÍNH ĐÚNG ĐẮN"
+ },
+ {
+  "level": 2,
+  "text": "3.1. Mã tiền tố và bài toán mã tối ưu"
+ },
+ {
+  "level": 2,
+  "text": "3.2. Thuật toán Huffman"
+ },
+ {
+  "level": 2,
+  "text": "3.3. Chứng minh tính đúng đắn của lựa chọn tham lam"
+ },
+ {
+  "level": 2,
+  "text": "3.4. Tính chất anh em và Huffman thích nghi"
+ },
+ {
+  "level": 1,
+  "text": "4. PHÂN TÍCH ĐỘ PHỨC TẠP VÀ SO SÁNH"
+ },
+ {
+  "level": 2,
+  "text": "4.1. Độ phức tạp của thuật toán Huffman tĩnh"
+ },
+ {
+  "level": 2,
+  "text": "4.2. Độ phức tạp của Huffman thích nghi (FGK)"
+ },
+ {
+  "level": 2,
+  "text": "4.3. Độ phức tạp của LZ77 và LZ78"
+ },
+ {
+  "level": 2,
+  "text": "4.4. So sánh Huffman tĩnh và Huffman thích nghi"
+ },
+ {
+  "level": 1,
+  "text": "5. CÀI ĐẶT"
+ },
+ {
+  "level": 2,
+  "text": "5.1. Tổ chức mã nguồn"
+ },
+ {
+  "level": 2,
+  "text": "5.2. Định dạng dữ liệu nén và tham số"
+ },
+ {
+  "level": 2,
+  "text": "5.3. Kiểm thử"
+ },
+ {
+  "level": 1,
+  "text": "6. THỰC NGHIỆM VÀ KẾT QUẢ"
+ },
+ {
+  "level": 2,
+  "text": "6.1. Dữ liệu"
+ },
+ {
+  "level": 2,
+  "text": "6.2. Môi trường và phương pháp đo"
+ },
+ {
+  "level": 2,
+  "text": "6.3. Tỉ lệ nén"
+ },
+ {
+  "level": 2,
+  "text": "6.4. Kiểm chứng tính tối ưu của mã Huffman"
+ },
+ {
+  "level": 2,
+  "text": "6.5. Thời gian chạy"
+ },
+ {
+  "level": 2,
+  "text": "6.6. Kiểm chứng độ phức tạp O(n log n) của bước dựng cây"
+ },
+ {
+  "level": 2,
+  "text": "6.7. Nén theo gói tin nhỏ: Huffman tĩnh và Huffman thích nghi"
+ },
+ {
+  "level": 2,
+  "text": "6.8. Đối chiếu với kết quả của Nasif và cộng sự (2021)"
+ },
+ {
+  "level": 1,
+  "text": "7. THẢO LUẬN"
+ },
+ {
+  "level": 2,
+  "text": "7.1. Vì sao kết quả LZ77, LZ78 khác với Nasif và cộng sự"
+ },
+ {
+  "level": 2,
+  "text": "7.2. Huffman tĩnh hay Huffman thích nghi cho nút IoT?"
+ },
+ {
+  "level": 2,
+  "text": "7.3. Yêu cầu bộ nhớ khi đưa lên vi điều khiển"
+ },
+ {
+  "level": 2,
+  "text": "7.4. Hạn chế của nghiên cứu"
+ },
+ {
+  "level": 1,
+  "text": "8. KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN"
+ },
+ {
+  "level": 1,
+  "text": "TÀI LIỆU THAM KHẢO"
+ },
+ {
+  "level": 1,
+  "text": "PHỤ LỤC. TÁI HIỆN THỰC NGHIỆM"
+ }
+]

@@ -6,6 +6,22 @@ Nén và giải nén ảnh **không mất dữ liệu** bằng thuật toán **H
 
 📄 **Báo cáo (phần a, b, c):** [`docs/bao-cao.md`](docs/bao-cao.md)
 
+## Bài cuối kỳ: nén dữ liệu cảm biến IoT (nhánh `final-exam`)
+
+📄 **Báo cáo:** [`docs/bao-cao-cuoi-ki.docx`](docs/bao-cao-cuoi-ki.docx). Đề tài: *Ứng dụng thuật toán tham lam Huffman trong nén dữ liệu cảm biến IoT*.
+
+- `iot_compression/`: Huffman tĩnh, Huffman thích nghi (FGK), LZ77, LZ78, tự cài đặt bằng Python.
+- `scripts/fetch_iot_datasets.py`: tải dữ liệu vào `data/iot/` (không commit).
+- `scripts/benchmark_iot.py`, `scripts/plot_iot.py`: chạy thực nghiệm, ghi `docs/ket-qua/`.
+- `scripts/report/make.sh`: sinh lại báo cáo `.docx` từ kết quả (cần node `docx`, LibreOffice, poppler).
+
+```bash
+python scripts/fetch_iot_datasets.py
+python scripts/benchmark_iot.py
+python scripts/plot_iot.py
+bash scripts/report/make.sh
+```
+
 ## Cài đặt
 
 Cần Python 3.10 trở lên.
