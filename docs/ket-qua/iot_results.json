@@ -1,0 +1,536 @@
+{
+  "environment": {
+    "python": "3.13.18",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "platform": "Linux-6.18.44-fc-v233-x86_64-with-glibc2.39"
+  },
+  "repeats": 3,
+  "datasets": [
+    {
+      "file": "appliances_energy.csv",
+      "bytes": 11979363,
+      "sha256": "2820bf712ad0275cb18b85a05250926100d8e65ebb9f4d2d016ca91ea152a25d",
+      "distinct_symbols": 47,
+      "entropy_bits": 3.397786152120638,
+      "deflate_bytes": 1646261,
+      "codecs": {
+        "static_huffman": {
+          "bytes": 5144535,
+          "ratio": 0.42944979628716484,
+          "encode_s": 2.7755983919998926,
+          "decode_s": 10.547697297000013
+        },
+        "adaptive_huffman": {
+          "bytes": 5144518,
+          "ratio": 0.4294483771799886,
+          "encode_s": 14.204809912999963,
+          "decode_s": 16.878588762999925
+        },
+        "lz77": {
+          "bytes": 3856111,
+          "ratio": 0.3218961642618226,
+          "encode_s": 12.45265462500015,
+          "decode_s": 1.5701660090001042
+        },
+        "lz78": {
+          "bytes": 2741645,
+          "ratio": 0.22886400554019443,
+          "encode_s": 1.7937346159999379,
+          "decode_s": 0.9749718350001331
+        }
+      }
+    },
+    {
+      "file": "beijing_pollution.csv",
+      "bytes": 2010492,
+      "sha256": "892e9559205d16d32623135c127a3951c12e46ea1e0b3093e107ce89a9fd60e2",
+      "distinct_symbols": 43,
+      "entropy_bits": 3.5644377113946377,
+      "deflate_bytes": 503529,
+      "codecs": {
+        "static_huffman": {
+          "bytes": 901193,
+          "ratio": 0.44824500669487866,
+          "encode_s": 0.4550976420000552,
+          "decode_s": 1.815503033999903
+        },
+        "adaptive_huffman": {
+          "bytes": 901167,
+          "ratio": 0.448232074536979,
+          "encode_s": 2.509145566000143,
+          "decode_s": 2.9245606550000502
+        },
+        "lz77": {
+          "bytes": 774142,
+          "ratio": 0.38505102233682104,
+          "encode_s": 2.865614168000093,
+          "decode_s": 0.3479364219999752
+        },
+        "lz78": {
+          "bytes": 717741,
+          "ratio": 0.3569976901176428,
+          "encode_s": 0.43544393000001946,
+          "decode_s": 0.24163384999997106
+        }
+      }
+    },
+    {
+      "file": "daily_female_births.csv",
+      "bytes": 6220,
+      "sha256": "7a0c1bdb32d68f7fa359e561a4f7e1fe8fb2fc26a1ea624a434a97a63735dd72",
+      "distinct_symbols": 24,
+      "entropy_bits": 3.67048831055464,
+      "deflate_bytes": 1285,
+      "codecs": {
+        "static_huffman": {
+          "bytes": 2934,
+          "ratio": 0.4717041800643087,
+          "encode_s": 0.0014296380002178921,
+          "decode_s": 0.0051233809999757796
+        },
+        "adaptive_huffman": {
+          "bytes": 2915,
+          "ratio": 0.46864951768488744,
+          "encode_s": 0.007531408000204465,
+          "decode_s": 0.008340006000025824
+        },
+        "lz77": {
+          "bytes": 1858,
+          "ratio": 0.29871382636655947,
+          "encode_s": 0.006506150000177513,
+          "decode_s": 0.0007140719999370049
+        },
+        "lz78": {
+          "bytes": 2095,
+          "ratio": 0.33681672025723475,
+          "encode_s": 0.0009823110001434543,
+          "decode_s": 0.000774406999880739
+        }
+      }
+    },
+    {
+      "file": "daily_min_temperatures.csv",
+      "bytes": 67921,
+      "sha256": "8b9de63ed6789492bf497625e7f9beb96a63d367b4b0a21754006f749fa5e5da",
+      "distinct_symbols": 23,
+      "entropy_bits": 3.791024824621936,
+      "deflate_bytes": 14158,
+      "codecs": {
+        "static_huffman": {
+          "bytes": 32696,
+          "ratio": 0.48138278293900266,
+          "encode_s": 0.0149542910000946,
+          "decode_s": 0.06482899399998132
+        },
+        "adaptive_huffman": {
+          "bytes": 32701,
+          "ratio": 0.4814563978740007,
+          "encode_s": 0.08998957500011784,
+          "decode_s": 0.09227129999999306
+        },
+        "lz77": {
+          "bytes": 19873,
+          "ratio": 0.2925899206431001,
+          "encode_s": 0.09323713499998121,
+          "decode_s": 0.00817864999999074
+        },
+        "lz78": {
+          "bytes": 21686,
+          "ratio": 0.3192826960733794,
+          "encode_s": 0.010912046999919767,
+          "decode_s": 0.007513741999900958
+        }
+      }
+    },
+    {
+      "file": "household_power_30days.txt",
+      "bytes": 2807492,
+      "sha256": "9325c5d2087fd0a1afaa2fdb7a584303bff21449c203bd380928b4ecd033065a",
+      "distinct_symbols": 41,
+      "entropy_bits": 3.237669720670892,
+      "deflate_bytes": 432128,
+      "codecs": {
+        "static_huffman": {
+          "bytes": 1158805,
+          "ratio": 0.4127545154180315,
+          "encode_s": 0.6463357370000722,
+          "decode_s": 2.311415741000019
+        },
+        "adaptive_huffman": {
+          "bytes": 1158778,
+          "ratio": 0.4127448982935659,
+          "encode_s": 3.207733810000036,
+          "decode_s": 3.8133368220001103
+        },
+        "lz77": {
+          "bytes": 815590,
+          "ratio": 0.2905048349202776,
+          "encode_s": 3.3291401480000786,
+          "decode_s": 0.42660261500009256
+        },
+        "lz78": {
+          "bytes": 671196,
+          "ratio": 0.23907316565817463,
+          "encode_s": 0.4484753770000225,
+          "decode_s": 0.22859659499999907
+        }
+      }
+    },
+    {
+      "file": "ionosphere.csv",
+      "bytes": 76466,
+      "sha256": "fd6dd7864b55d56dac0a1e6e24af9ccc35bf2555ac79af8ab9f3d1daa065ab83",
+      "distinct_symbols": 16,
+      "entropy_bits": 3.5393239596456016,
+      "deflate_bytes": 28036,
+      "codecs": {
+        "static_huffman": {
+          "bytes": 34553,
+          "ratio": 0.4518740355190542,
+          "encode_s": 0.01621757000020807,
+          "decode_s": 0.06754172899991318
+        },
+        "adaptive_huffman": {
+          "bytes": 34571,
+          "ratio": 0.4521094342583632,
+          "encode_s": 0.08887393100008012,
+          "decode_s": 0.10321223900018595
+        },
+        "lz77": {
+          "bytes": 43135,
+          "ratio": 0.5641069233384772,
+          "encode_s": 0.07874512000012146,
+          "decode_s": 0.019949492000023383
+        },
+        "lz78": {
+          "bytes": 35865,
+          "ratio": 0.46903198807313057,
+          "encode_s": 0.015730236000081277,
+          "decode_s": 0.01342221899994911
+        }
+      }
+    },
+    {
+      "file": "monthly_sunspots.csv",
+      "bytes": 45039,
+      "sha256": "c4ec8cc57d9f6fb6ecdb3e1f37f25b6f4badd5124c55931052b0cd2fc3bc71f3",
+      "distinct_symbols": 25,
+      "entropy_bits": 3.8767900835745497,
+      "deflate_bytes": 12189,
+      "codecs": {
+        "static_huffman": {
+          "bytes": 22162,
+          "ratio": 0.4920624347787473,
+          "encode_s": 0.00937523799984774,
+          "decode_s": 0.04236359799983802
+        },
+        "adaptive_huffman": {
+          "bytes": 22144,
+          "ratio": 0.4916627811452297,
+          "encode_s": 0.08348042199986594,
+          "decode_s": 0.0898921949999476
+        },
+        "lz77": {
+          "bytes": 16591,
+          "ratio": 0.3683696352050445,
+          "encode_s": 0.053960611999855246,
+          "decode_s": 0.006213999000010517
+        },
+        "lz78": {
+          "bytes": 16508,
+          "ratio": 0.3665267878949355,
+          "encode_s": 0.007979400000067471,
+          "decode_s": 0.0056666549999135896
+        }
+      }
+    },
+    {
+      "file": "occupancy_datatest.txt",
+      "bytes": 200766,
+      "sha256": "1b92c7c1b2838963464fa891a610cf3c5db4becb7189189b29b330107a584c7f",
+      "distinct_symbols": 38,
+      "entropy_bits": 3.8416708368859984,
+      "deflate_bytes": 45944,
+      "codecs": {
+        "static_huffman": {
+          "bytes": 97586,
+          "ratio": 0.4860683581881394,
+          "encode_s": 0.04215708900005666,
+          "decode_s": 0.18142026000009537
+        },
+        "adaptive_huffman": {
+          "bytes": 97557,
+          "ratio": 0.4859239114192642,
+          "encode_s": 0.25415861700003006,
+          "decode_s": 0.30674562400008654
+        },
+        "lz77": {
+          "bytes": 89014,
+          "ratio": 0.4433718856778538,
+          "encode_s": 0.13483885499999815,
+          "decode_s": 0.031130316000144376
+        },
+        "lz78": {
+          "bytes": 74459,
+          "ratio": 0.37087455047169343,
+          "encode_s": 0.03649984599996969,
+          "decode_s": 0.02590590899990275
+        }
+      }
+    },
+    {
+      "file": "occupancy_datatest2.txt",
+      "bytes": 699664,
+      "sha256": "d026d1bd5aeccd4aff4f3b3710d48e40613bd5fc370db7e61bbdcaa50d985095",
+      "distinct_symbols": 38,
+      "entropy_bits": 3.835911136936323,
+      "deflate_bytes": 153770,
+      "codecs": {
+        "static_huffman": {
+          "bytes": 339982,
+          "ratio": 0.48592181389924305,
+          "encode_s": 0.1550549730000057,
+          "decode_s": 0.6663936370000556
+        },
+        "adaptive_huffman": {
+          "bytes": 339956,
+          "ratio": 0.48588465320496693,
+          "encode_s": 0.9143143320000036,
+          "decode_s": 1.0027464880001844
+        },
+        "lz77": {
+          "bytes": 292354,
+          "ratio": 0.4178491390152988,
+          "encode_s": 0.4859465470001396,
+          "decode_s": 0.10799187000020538
+        },
+        "lz78": {
+          "bytes": 258718,
+          "ratio": 0.3697746346817901,
+          "encode_s": 0.13412173599999733,
+          "decode_s": 0.09302861600008328
+        }
+      }
+    },
+    {
+      "file": "occupancy_datatraining.txt",
+      "bytes": 596674,
+      "sha256": "b2c4d0ce2b9e4e453c476f7125ef31aeec2d1f5c7f5572d0e80de3df6521ab56",
+      "distinct_symbols": 38,
+      "entropy_bits": 3.8515220587526247,
+      "deflate_bytes": 120986,
+      "codecs": {
+        "static_huffman": {
+          "bytes": 290983,
+          "ratio": 0.4876750118154972,
+          "encode_s": 0.13969522799993683,
+          "decode_s": 0.5766898289998608
+        },
+        "adaptive_huffman": {
+          "bytes": 290970,
+          "ratio": 0.48765322437377867,
+          "encode_s": 0.8000777029999426,
+          "decode_s": 0.9792185849998987
+        },
+        "lz77": {
+          "bytes": 245353,
+          "ratio": 0.4112010913832344,
+          "encode_s": 0.4092425420001291,
+          "decode_s": 0.09575011199990513
+        },
+        "lz78": {
+          "bytes": 211656,
+          "ratio": 0.354726366491585,
+          "encode_s": 0.111972754999897,
+          "decode_s": 0.06936872200003563
+        }
+      }
+    },
+    {
+      "file": "shampoo_sales.csv",
+      "bytes": 519,
+      "sha256": "f709eaa344b2d07039a49e2193cbff5e56206354f3a8203c0e02471beb39a451",
+      "distinct_symbols": 26,
+      "entropy_bits": 3.950331845684322,
+      "deflate_bytes": 230,
+      "codecs": {
+        "static_huffman": {
+          "bytes": 317,
+          "ratio": 0.6107899807321773,
+          "encode_s": 0.00015777699991303962,
+          "decode_s": 0.0004666119998546492
+        },
+        "adaptive_huffman": {
+          "bytes": 293,
+          "ratio": 0.5645472061657033,
+          "encode_s": 0.0007714050000231509,
+          "decode_s": 0.0008571959999699175
+        },
+        "lz77": {
+          "bytes": 490,
+          "ratio": 0.9441233140655106,
+          "encode_s": 0.0004088840000804339,
+          "decode_s": 0.00013070199997855525
+        },
+        "lz78": {
+          "bytes": 337,
+          "ratio": 0.649325626204239,
+          "encode_s": 0.00013559899980464252,
+          "decode_s": 0.0001281849999941187
+        }
+      }
+    }
+  ],
+  "tree_scaling": [
+    {
+      "n": 256,
+      "heap_s": 0.00015061199997035146,
+      "two_queues_s": 0.00014528400015478837,
+      "naive_s": 0.004120868000200062,
+      "cost": 1107380999
+    },
+    {
+      "n": 512,
+      "heap_s": 0.00032046199999058445,
+      "two_queues_s": 0.0003504169999359874,
+      "naive_s": 0.016804237000087596,
+      "cost": 2222745346
+    },
+    {
+      "n": 1024,
+      "heap_s": 0.0007011210000200663,
+      "two_queues_s": 0.0007517510000525363,
+      "naive_s": 0.07337956700007453,
+      "cost": 4972211568
+    },
+    {
+      "n": 2048,
+      "heap_s": 0.001682027000015296,
+      "two_queues_s": 0.0014379050001025462,
+      "naive_s": 0.30310586399991735,
+      "cost": 10843631313
+    },
+    {
+      "n": 4096,
+      "heap_s": 0.003947514999936175,
+      "two_queues_s": 0.003314792000082889,
+      "naive_s": 1.3075755130000744,
+      "cost": 23516419744
+    },
+    {
+      "n": 8192,
+      "heap_s": 0.009114530000033483,
+      "two_queues_s": 0.007449721000057252,
+      "naive_s": 5.187590728000032,
+      "cost": 52178470997
+    },
+    {
+      "n": 16384,
+      "heap_s": 0.021238225999923088,
+      "two_queues_s": 0.01585606799994821,
+      "cost": 111414974568
+    },
+    {
+      "n": 32768,
+      "heap_s": 0.05397656300010567,
+      "two_queues_s": 0.0414424279999821,
+      "cost": 241464912777
+    },
+    {
+      "n": 65536,
+      "heap_s": 0.1336287159999756,
+      "two_queues_s": 0.08166092500005107,
+      "cost": 515670241379
+    },
+    {
+      "n": 131072,
+      "heap_s": 0.39368746299987833,
+      "two_queues_s": 0.19489325200015628,
+      "cost": 1095539212380
+    }
+  ],
+  "packets": [
+    {
+      "packet_bytes": 64,
+      "packets": 9324,
+      "ratio": {
+        "static_huffman": 1.0738996503953582,
+        "adaptive_huffman": 0.8107928282445691,
+        "lz77": 2.848867220626339,
+        "lz78": 0.988595112238844
+      }
+    },
+    {
+      "packet_bytes": 128,
+      "packets": 4662,
+      "ratio": {
+        "static_huffman": 0.7873227256424782,
+        "adaptive_huffman": 0.6604259612451691,
+        "lz77": 1.9603317724586624,
+        "lz78": 0.8751194119401885
+      }
+    },
+    {
+      "packet_bytes": 256,
+      "packets": 2331,
+      "ratio": {
+        "static_huffman": 0.6351257135387163,
+        "adaptive_huffman": 0.5767320178187754,
+        "lz77": 1.3276043534660469,
+        "lz78": 0.785381967372468
+      }
+    },
+    {
+      "packet_bytes": 512,
+      "packets": 1166,
+      "ratio": {
+        "static_huffman": 0.5589115664500213,
+        "adaptive_huffman": 0.5328638418969153,
+        "lz77": 0.9689797108638888,
+        "lz78": 0.7021153929951699
+      }
+    },
+    {
+      "packet_bytes": 1024,
+      "packets": 583,
+      "ratio": {
+        "static_huffman": 0.5208539336388044,
+        "adaptive_huffman": 0.5097708296322615,
+        "lz77": 0.7532421389234323,
+        "lz78": 0.6142717798999119
+      }
+    },
+    {
+      "packet_bytes": 2048,
+      "packets": 292,
+      "ratio": {
+        "static_huffman": 0.5021502529019196,
+        "adaptive_huffman": 0.4979955553618894,
+        "lz77": 0.6136533517465148,
+        "lz78": 0.5327230615042721
+      }
+    },
+    {
+      "packet_bytes": 4096,
+      "packets": 146,
+      "ratio": {
+        "static_huffman": 0.4930598618341004,
+        "adaptive_huffman": 0.49215149311014056,
+        "lz77": 0.5206293553933974,
+        "lz78": 0.4658842181827933
+      }
+    },
+    {
+      "packet_bytes": 16384,
+      "packets": 37,
+      "ratio": {
+        "static_huffman": 0.48677334691975854,
+        "adaptive_huffman": 0.4879699802572259,
+        "lz77": 0.43837170716337565,
+        "lz78": 0.39591468708205824
+      }
+    }
+  ],
+  "scaling_repeats": 7
+}
