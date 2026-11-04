@@ -30,9 +30,9 @@ const GROUP = {
   number: "8",
   members: [
     { name: "Đoàn Công Phú", id: "268119157", cls: "34CNTT11" },
-    { name: "Vũ Quang Vinh", id: "", cls: "34CNTT11" },
+    { name: "Vũ Quang Vinh", id: "268119116", cls: "34CNTT11" },
   ],
-  supervisor: "",  // chưa biết tên giảng viên hướng dẫn: để trống cho nhóm điền
+  supervisor: "TS. Nguyễn Trịnh Đông",
 };
 
 // Trang bìa dựng lại theo tệp “BaoCao_DevSecOps_TichHop.docx” do nhóm cung cấp: khung viền
